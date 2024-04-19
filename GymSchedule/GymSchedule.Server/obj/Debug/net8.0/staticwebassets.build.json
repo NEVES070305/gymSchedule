@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "YEfxKNy4NBom6aadv9A4Boe9huinC4+V1WkpH+fmpcw=",
+  "Source": "GymSchedule.Server",
+  "BasePath": "_content/GymSchedule.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\Guilherme Neves da S\\Documents\\gymSchedule\\GymSchedule\\gymschedule.client\\gymschedule.client.esproj",
+      "Version": 2,
+      "Source": "gymschedule.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

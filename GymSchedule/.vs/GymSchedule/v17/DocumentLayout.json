@@ -1,0 +1,55 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Guilherme Neves da S\\Documents\\gymSchedule\\GymSchedule\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2BFD4ABB-FA62-4DE3-A06D-8BF28624D311}|GymSchedule.Server\\GymSchedule.Server.csproj|c:\\users\\guilherme neves da s\\documents\\gymschedule\\gymschedule\\gymschedule.server\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{2BFD4ABB-FA62-4DE3-A06D-8BF28624D311}|GymSchedule.Server\\GymSchedule.Server.csproj|solutionrelative:gymschedule.server\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1524,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\Guilherme Neves da S\\Documents\\gymSchedule\\GymSchedule\\GymSchedule.Server\\Dockerfile",
+              "RelativeDocumentMoniker": "GymSchedule.Server\\Dockerfile",
+              "ToolTip": "C:\\Users\\Guilherme Neves da S\\Documents\\gymSchedule\\GymSchedule\\GymSchedule.Server\\Dockerfile",
+              "RelativeToolTip": "GymSchedule.Server\\Dockerfile",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-04-19T23:18:52.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
