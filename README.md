@@ -18,31 +18,31 @@ Ao elaborar a documentação do escopo de um projeto fullstack de TI, é importa
 2. **Visão Geral do Sistema**
     - Cliente/alunos de academias
     - Requisitos Funcionais:
-   **Cadastro de Usuários:**
-    - Os usuários devem poder se cadastrar no sistema fornecendo informações como nome, e-mail e senha.
-    - Deve existir validação dos campos de entrada para garantir a integridade dos dados.
-
-   **Autenticação de Usuários:**
-    - Os usuários registrados devem poder fazer login no sistema utilizando suas credenciais.
-    - O sistema deve verificar as credenciais do usuário e autenticá-lo com sucesso.
-
-   **Gerenciamento de Produtos:**
-    - Os usuários com permissões adequadas devem poder adicionar, editar e excluir produtos do sistema.
-    - Deve haver a possibilidade de associar categorias e outras informações relevantes a cada produto.
-
-    Requisitos Não Funcionais:
-
-    **Desempenho:**
-      - O sistema deve ser capaz de lidar com um grande número de solicitações simultâneas sem degradar significativamente o desempenho.
-      - O tempo de resposta para as operações principais do sistema (como login e consulta de produtos) deve ser mínimo.
-  
-    **Segurança:**
-    - A autenticação de usuários deve ser segura, utilizando token JWT para proteger as comunicações entre cliente e servidor.
-    - As senhas dos usuários devem ser armazenadas de forma segura, utilizando técnicas de hashing e salting.
-
-    **Escalabilidade:**
-      - O sistema deve ser projetado para escalabilidade, de modo que possa lidar com um aumento no número de usuários e de dados sem comprometer o desempenho.
-      - Deve ser possível adicionar novos servidores conforme necessário para lidar com a carga crescente.
+       **Cadastro de Usuários:**
+        - Os usuários devem poder se cadastrar no sistema fornecendo informações como nome, e-mail e senha.
+        - Deve existir validação dos campos de entrada para garantir a integridade dos dados.
+    
+       **Autenticação de Usuários:**
+        - Os usuários registrados devem poder fazer login no sistema utilizando suas credenciais.
+        - O sistema deve verificar as credenciais do usuário e autenticá-lo com sucesso.
+    
+       **Gerenciamento de Produtos:**
+        - Os usuários com permissões adequadas devem poder adicionar, editar e excluir produtos do sistema.
+        - Deve haver a possibilidade de associar categorias e outras informações relevantes a cada produto.
+    
+        Requisitos Não Funcionais:
+    
+        **Desempenho:**
+          - O sistema deve ser capaz de lidar com um grande número de solicitações simultâneas sem degradar significativamente o desempenho.
+          - O tempo de resposta para as operações principais do sistema (como login e consulta de produtos) deve ser mínimo.
+      
+        **Segurança:**
+        - A autenticação de usuários deve ser segura, utilizando token JWT para proteger as comunicações entre cliente e servidor.
+        - As senhas dos usuários devem ser armazenadas de forma segura, utilizando técnicas de hashing e salting.
+    
+        **Escalabilidade:**
+          - O sistema deve ser projetado para escalabilidade, de modo que possa lidar com um aumento no número de usuários e de dados sem comprometer o desempenho.
+          - Deve ser possível adicionar novos servidores conforme necessário para lidar com a carga crescente.
 
 3. **Arquitetura do Sistema**
     - Explicação da arquitetura MVC (Model-View-Controller)
