@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "378D8f/41gA1jz0k0s2Sf2BPJ4fQCZ8LIxz85/wyHI+RpMVvz9P8epZi1g6AodFi1HpaFt/4eSsWVEcbbCWEqg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Guilherme Neves da S\\Documents\\gymSchedule\\WebApplication\\WebApplication.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Guilherme Neves da S\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.6\\microsoft.visualstudio.azure.containers.tools.targets.1.19.6.nupkg.sha512"
+  ],
+  "logs": []
+}
