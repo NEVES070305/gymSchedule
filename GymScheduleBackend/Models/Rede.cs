@@ -12,23 +12,7 @@ public class Rede
     public string Nome { get; set; }
 
     [Required]
-    [MaxLength(70)]
-    public string Cidade { get; set; }
-
-    [Required]
-    [MaxLength(50)]
-    public string Estado { get; set; }
-
-    [Required]
-    [MaxLength(50)]
-    public string Bairro { get; set; }
-
-    [Required]
-    [MaxLength(150)]
-    public string Rua { get; set; }
-
-    [Required]
-    public int Numero { get; set; }
+    public Endereco Endereco { get; set; }
 
     public ICollection<Academia> Academias { get; set; }
 }
