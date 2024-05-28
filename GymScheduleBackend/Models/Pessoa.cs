@@ -19,6 +19,8 @@ public class Pessoa
     public string UltimoNome { get; set; }
 
     [Required]
+    [ForeignKey("Endereco")]
+    public int EnderecoId { get; set; }
     public Endereco Endereco { get; set; }
 
     [Required]

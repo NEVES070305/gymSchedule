@@ -12,6 +12,8 @@ public class Rede
     public string Nome { get; set; }
 
     [Required]
+    [ForeignKey("Endereco")]
+    public int EnderecoId { get; set; }
     public Endereco Endereco { get; set; }
 
     public ICollection<Academia> Academias { get; set; }

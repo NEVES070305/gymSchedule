@@ -1,23 +1,29 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 public class Endereco
 {
-	[Key]
-	[MaxLength(50)]
-	public string Estado { get; set; }
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int Id { get; set; }
 
-	[Key]
-	[MaxLength(70)]
-	public string Cidade { get; set; }
+    [Required]
+    [MaxLength(50)]
+    public string Estado { get; set; }
 
-	[Key]
-	[MaxLength(50)]
-	public string Bairro { get; set; }
+    [Required]
+    [MaxLength(70)]
+    public string Cidade { get; set; }
 
-	[Key]
-	[MaxLength(150)]
-	public string Rua { get; set; }
+    [Required]
+    [MaxLength(50)]
+    public string Bairro { get; set; }
 
-	[Key]
-	public int Numero { get; set; }
+    [Required]
+    [MaxLength(150)]
+    public string Rua { get; set; }
+
+    [Required]
+    public int Numero { get; set; }
 }
+
