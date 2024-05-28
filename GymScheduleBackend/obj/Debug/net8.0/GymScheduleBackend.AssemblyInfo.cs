@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GymScheduleBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+27d3f30d243830acef19100814b2c43ac16ece75")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+708e63d7f9a5327b7c17c395fc390db156b7677d")]
 [assembly: System.Reflection.AssemblyProductAttribute("GymScheduleBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GymScheduleBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

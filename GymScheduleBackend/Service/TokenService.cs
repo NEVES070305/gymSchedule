@@ -3,21 +3,21 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
-using ConsultApi.Models;
-using ConsultApi.Configuration;
+using GymScheduleBackend.Models;
+using GymScheduleBackend.Configuration;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Linq;
 
 
-namespace ConsultApi.Services
+namespace GymScheduleBackend.Services
     {
         public static class JwtService
         {
-            public static (string token, DateTime? expirationDate) GenerateToken(User user)
+            public static (string token, DateTime? expirationDate) GenerateToken(Pessoa user)
             {
                 var tokenHandler = new JwtSecurityTokenHandler(); //Classe que gera o token realmente
-                var key = Encoding.ASCII.GetBytes(Settings.Secret);
+                var key = Encoding.ASCII.GetBytes(Settings.Settings.Secret);
 
                 var tokenDescritor = new SecurityTokenDescriptor
                 {
@@ -25,8 +25,8 @@ namespace ConsultApi.Services
 
                         new[]
                         {
-                            new Claim(ClaimTypes.Name, user.Username), // User.Identity.Name
-                            new Claim(ClaimTypes.Role, user.Role)
+                            new Claim(ClaimTypes.Name, user.Nome), // User.Identity.Name
+                            new Claim(ClaimTypes.Role, user.RoleName)
                         }),
 
                     Expires = DateTime.UtcNow.AddMinutes(120),
@@ -41,7 +41,7 @@ namespace ConsultApi.Services
             public static (string newJwtToken, DateTime? expirationDate) GenerateToken(IEnumerable<Claim> claims)
             {
                 var tokenHandler = new JwtSecurityTokenHandler(); //Classe que gera o token realmente
-                var key = Encoding.ASCII.GetBytes(Settings.Secret);
+                var key = Encoding.ASCII.GetBytes(Settings.Settings.Secret);
 
                 var tokenDescritor = new SecurityTokenDescriptor
                 {
@@ -74,7 +74,7 @@ namespace ConsultApi.Services
                         ValidateAudience = false,
                         ValidateIssuer = false,
                         ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Settings.Secret)),
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Settings.Settings.Secret)),
                         ValidateLifetime = false
                     };
                     var tokenHandler = new JwtSecurityTokenHandler();
@@ -115,7 +115,7 @@ namespace ConsultApi.Services
                 var validationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Convert.FromBase64String(Settings.Secret)),
+                    IssuerSigningKey = new SymmetricSecurityKey(Convert.FromBase64String(Settings.Settings.Secret)),
                     ValidateIssuer = false,
                     ValidateAudience = false,
                     ClockSkew = TimeSpan.Zero // Não aceitar tokens que expiraram

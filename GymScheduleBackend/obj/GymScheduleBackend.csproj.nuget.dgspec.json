@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Guilherme Neves da S\\Documents\\gymSchedule\\GymScheduleBackend\\GymScheduleBackend.csproj": {}
+    "C:\\Users\\André Bastida\\Desktop\\Arquivos\\Terceiro Semestre\\Faculdade\\Projetos\\Entrega_API_SQUAD\\gymSchedule\\GymScheduleBackend\\GymScheduleBackend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Guilherme Neves da S\\Documents\\gymSchedule\\GymScheduleBackend\\GymScheduleBackend.csproj": {
+    "C:\\Users\\André Bastida\\Desktop\\Arquivos\\Terceiro Semestre\\Faculdade\\Projetos\\Entrega_API_SQUAD\\gymSchedule\\GymScheduleBackend\\GymScheduleBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Guilherme Neves da S\\Documents\\gymSchedule\\GymScheduleBackend\\GymScheduleBackend.csproj",
+        "projectUniqueName": "C:\\Users\\André Bastida\\Desktop\\Arquivos\\Terceiro Semestre\\Faculdade\\Projetos\\Entrega_API_SQUAD\\gymSchedule\\GymScheduleBackend\\GymScheduleBackend.csproj",
         "projectName": "GymScheduleBackend",
-        "projectPath": "C:\\Users\\Guilherme Neves da S\\Documents\\gymSchedule\\GymScheduleBackend\\GymScheduleBackend.csproj",
-        "packagesPath": "C:\\Users\\Guilherme Neves da S\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Guilherme Neves da S\\Documents\\gymSchedule\\GymScheduleBackend\\obj\\",
+        "projectPath": "C:\\Users\\André Bastida\\Desktop\\Arquivos\\Terceiro Semestre\\Faculdade\\Projetos\\Entrega_API_SQUAD\\gymSchedule\\GymScheduleBackend\\GymScheduleBackend.csproj",
+        "packagesPath": "C:\\Users\\André Bastida\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\André Bastida\\Desktop\\Arquivos\\Terceiro Semestre\\Faculdade\\Projetos\\Entrega_API_SQUAD\\gymSchedule\\GymScheduleBackend\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Guilherme Neves da S\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\André Bastida\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -86,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
