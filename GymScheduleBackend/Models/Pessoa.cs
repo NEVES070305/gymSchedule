@@ -1,3 +1,4 @@
+using GymScheduleBackend.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -23,5 +24,5 @@ public class Pessoa
 
     [Required]
     [MaxLength(50)]
-    public string Role { get; set; }
+    public Role Role { get; set; }
 }
