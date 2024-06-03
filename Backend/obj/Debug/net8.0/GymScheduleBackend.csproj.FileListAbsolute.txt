@@ -1,0 +1,8 @@
+C:\Users\André Bastida\Desktop\Arquivos\Terceiro Semestre\Faculdade\Projetos\Entrega_API_SQUAD\gymSchedule\GymScheduleBackend\obj\Debug\net8.0\GymScheduleBackend.csproj.AssemblyReference.cache
+C:\Users\André Bastida\Desktop\Arquivos\Terceiro Semestre\Faculdade\Projetos\Entrega_API_SQUAD\gymSchedule\GymScheduleBackend\obj\Debug\net8.0\GymScheduleBackend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\André Bastida\Desktop\Arquivos\Terceiro Semestre\Faculdade\Projetos\Entrega_API_SQUAD\gymSchedule\GymScheduleBackend\obj\Debug\net8.0\GymScheduleBackend.AssemblyInfoInputs.cache
+C:\Users\André Bastida\Desktop\Arquivos\Terceiro Semestre\Faculdade\Projetos\Entrega_API_SQUAD\gymSchedule\GymScheduleBackend\obj\Debug\net8.0\GymScheduleBackend.AssemblyInfo.cs
+C:\Users\André Bastida\Desktop\Arquivos\Terceiro Semestre\Faculdade\Projetos\Entrega_API_SQUAD\gymSchedule\GymScheduleBackend\obj\Debug\net8.0\GymScheduleBackend.csproj.CoreCompileInputs.cache
+C:\Users\André Bastida\Desktop\Arquivos\Terceiro Semestre\Faculdade\Projetos\Entrega_API_SQUAD\gymSchedule\GymScheduleBackend\obj\Debug\net8.0\GymScheduleBackend.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\André Bastida\Desktop\Arquivos\Terceiro Semestre\Faculdade\Projetos\Entrega_API_SQUAD\gymSchedule\GymScheduleBackend\obj\Debug\net8.0\GymScheduleBackend.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\André Bastida\Desktop\Arquivos\Terceiro Semestre\Faculdade\Projetos\Entrega_API_SQUAD\gymSchedule\GymScheduleBackend\obj\Debug\net8.0\GymScheduleBackend.sourcelink.json
