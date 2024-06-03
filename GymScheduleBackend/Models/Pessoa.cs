@@ -19,10 +19,13 @@ public class Pessoa
     [MaxLength(40)]
     public string UltimoNome { get; set; }
 
+    [ForeignKey("Endereco")]
     [Required]
+    public Endereco EnderecoId { get; set; }
     public Endereco Endereco { get; set; }
 
-    [Required]
-    [MaxLength(50)]
+
+    [ForeignKey("Role")]
+    public string RoleId {  get; set; }
     public Role Role { get; set; }
 }

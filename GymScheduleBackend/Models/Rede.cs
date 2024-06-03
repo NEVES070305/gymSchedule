@@ -11,7 +11,8 @@ public class Rede
     [MaxLength(100)]
     public string Nome { get; set; }
 
-    [Required]
+    [ForeignKey(Endereco)]
+0   [Required]
     public Endereco Endereco { get; set; }
 
     public ICollection<Academia> Academias { get; set; }

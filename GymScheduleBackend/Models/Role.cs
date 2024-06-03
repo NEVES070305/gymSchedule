@@ -5,6 +5,7 @@ namespace GymScheduleBackend.Models
 {
     public class Role
     {
+        [Key]
         [Required]
         [MaxLength(100)]
         public string Nome { get; set; }
