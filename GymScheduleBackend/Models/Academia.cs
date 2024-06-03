@@ -8,6 +8,11 @@
         public string Cnpj { get; set; }
 
         [Required]
+        [ForeignKey("Pessoa")]
+        public Pessoa Proprietario { get; set; }
+        
+
+        [Required]
         [MaxLength(100)]
         public string Nome { get; set; }
 
