@@ -21,7 +21,12 @@ public class Pessoa
 
     [ForeignKey("Endereco")]
     [Required]
+<<<<<<< HEAD
     public Endereco EnderecoId { get; set; }
+=======
+    [ForeignKey("Endereco")]
+    public int EnderecoId { get; set; }
+>>>>>>> 35c8a5380cc06d6844a3f8a65beedc8230620af3
     public Endereco Endereco { get; set; }
 
 
