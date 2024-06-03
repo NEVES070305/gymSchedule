@@ -3,8 +3,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
-using GymScheduleBackend.Models;
-using GymScheduleBackend.Configuration;
+using Backend.Models;
+using Backend.Configuration;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Linq;
@@ -41,7 +41,7 @@ namespace GymScheduleBackend.Services
             public static (string newJwtToken, DateTime? expirationDate) GenerateToken(IEnumerable<Claim> claims)
             {
                 var tokenHandler = new JwtSecurityTokenHandler(); //Classe que gera o token realmente
-                var key = Encoding.ASCII.GetBytes(Settings.Settings.Secret);
+                var key = Encoding.ASCII.GetBytes(Settings.Secret);
 
                 var tokenDescritor = new SecurityTokenDescriptor
                 {
@@ -115,7 +115,7 @@ namespace GymScheduleBackend.Services
                 var validationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Convert.FromBase64String(Settings.Settings.Secret)),
+                    IssuerSigningKey = new SymmetricSecurityKey(Convert.FromBase64String(Settings.Secret)),
                     ValidateIssuer = false,
                     ValidateAudience = false,
                     ClockSkew = TimeSpan.Zero // Não aceitar tokens que expiraram
