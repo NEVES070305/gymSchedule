@@ -1,10 +1,13 @@
 
+using Microsoft.Identity.Client;
+
 namespace GymScheduleBackend
 {
     public class Program
     {
         public static void Main(string[] args)
         {
+            public IConfiguration Configuration { get; }
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
