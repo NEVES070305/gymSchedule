@@ -47,7 +47,7 @@ public class ApplicationDbContext : DbContext
 		modelBuilder.Entity<Pessoa>()
 			.HasOne(p => p.Role) // Cada Pessoa tem um Role.
 			.WithMany(r => r.Pessoas) // Um Role pode estar relacionado a muitas Pessoas.
-			.HasForeignKey(p => p.RoleId); // Chave estrangeira em Pessoa referenciando Role.
+			.HasForeignKey(p => p.RoleName); // Chave estrangeira em Pessoa referenciando Role.
 
 		// Chama o método base para garantir que qualquer configuração adicional no DbContext base seja aplicada.
 		base.OnModelCreating(modelBuilder);

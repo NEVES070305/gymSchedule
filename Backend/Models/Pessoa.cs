@@ -23,6 +23,6 @@ public class Pessoa
     public Endereco Endereco { get; set; }
 
     [Required]
-    public int RoleId { get; set; }
+    public string RoleName { get; set; }
     public Role Role { get; set; }
 }

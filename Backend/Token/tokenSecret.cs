@@ -17,7 +17,7 @@ namespace GymScheduleBackend.Services
             public static (string token, DateTime? expirationDate) GenerateToken(Pessoa user)
             {
                 var tokenHandler = new JwtSecurityTokenHandler(); //Classe que gera o token realmente
-                var key = Encoding.ASCII.GetBytes(Settings.Settings.Secret);
+                var key = Encoding.ASCII.GetBytes(Settings.Secret);
 
                 var tokenDescritor = new SecurityTokenDescriptor
                 {
@@ -74,7 +74,7 @@ namespace GymScheduleBackend.Services
                         ValidateAudience = false,
                         ValidateIssuer = false,
                         ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Settings.Settings.Secret)),
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Settings.Secret)),
                         ValidateLifetime = false
                     };
                     var tokenHandler = new JwtSecurityTokenHandler();
