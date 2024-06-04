@@ -1,10 +1,16 @@
 using Microsoft.EntityFrameworkCore;
 
 // Define a classe de contexto que herda de DbContext, que é o principal ponto de integração com o Entity Framework Core.
+namespace Backend.Data
+{
 public class ApplicationDbContext : DbContext
 {
-	// Define conjuntos de dados (tabelas) para cada entidade. DbSet<T> representa uma coleção de todas as entidades no contexto.
-	public DbSet<Academia> Academias { get; set; }
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+    : base(options)
+    {
+    }
+        // Define conjuntos de dados (tabelas) para cada entidade. DbSet<T> representa uma coleção de todas as entidades no contexto.
+        public DbSet<Academia> Academias { get; set; }
 	public DbSet<Rede> Redes { get; set; }
 	public DbSet<Endereco> Enderecos { get; set; }
 	public DbSet<Pessoa> Pessoas { get; set; }
@@ -46,4 +52,6 @@ public class ApplicationDbContext : DbContext
 		// Chama o método base para garantir que qualquer configuração adicional no DbContext base seja aplicada.
 		base.OnModelCreating(modelBuilder);
 	}
+}
+
 }
