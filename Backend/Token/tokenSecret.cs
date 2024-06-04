@@ -26,7 +26,7 @@ namespace GymScheduleBackend.Services
                         new[]
                         {
                             new Claim(ClaimTypes.Name, user.Nome), // User.Identity.Name
-                            new Claim(ClaimTypes.Role, user.RoleName)
+                            new Claim(ClaimTypes.Role, user.Nome)
                         }),
 
                     Expires = DateTime.UtcNow.AddMinutes(120),
