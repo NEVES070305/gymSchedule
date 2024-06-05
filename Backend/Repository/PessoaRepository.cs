@@ -9,5 +9,6 @@ namespace Backend.Repository
         {
             _applicationDbContext = applicationDbContext;
         }
+
     }
 }

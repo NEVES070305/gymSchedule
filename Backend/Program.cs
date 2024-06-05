@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 
 using Backend.Data;
 using Microsoft.EntityFrameworkCore;
+using Backend.Repository;
 
 namespace Backend
 {
@@ -20,6 +21,7 @@ namespace Backend
             // Register the ApplicationDbContext with the connection string from appsettings.json
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddScoped<EnderecoRepository>();
 
             var app = builder.Build();
 
@@ -34,8 +36,8 @@ namespace Backend
             app.UseStaticFiles();
 
             app.UseRouting();
-
             app.UseAuthorization();
+            
 
             app.MapControllerRoute(
                 name: "default",
