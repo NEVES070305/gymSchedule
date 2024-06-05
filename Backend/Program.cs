@@ -22,6 +22,7 @@ namespace Backend
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             builder.Services.AddScoped<EnderecoRepository>();
+            builder.Services.AddScoped<PessoaRepository>();
 
             var app = builder.Build();
 

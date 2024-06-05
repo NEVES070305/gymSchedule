@@ -9,6 +9,11 @@ namespace Backend.Repository
         {
             _applicationDbContext = applicationDbContext;
         }
-
+        public Pessoa Adicionar(Pessoa pessoa)
+        {
+            _applicationDbContext.Pessoas.Add(pessoa);
+            _applicationDbContext.SaveChanges();
+            return pessoa;
+        }
     }
 }
