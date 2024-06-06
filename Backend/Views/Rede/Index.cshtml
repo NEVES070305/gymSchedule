@@ -2,10 +2,23 @@
 @{
     ViewData["Title"] = "Cadastrar rede";
 }
-
 <div class="text-center">
-    <h1 class="display-4">Cadastrar rede</h1>
+
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                Listar
+            </div>
+            <div class="col">
+                Cadastrar
+            </div>
+            <div class="col">
+                Editar
+            </div>
+        </div>
+    </div>
 </div>
+
 <form asp-controller="Rede" asp-action="Criar" method="post">
     <div class="form-group">
         <label for="nome">Nome</label>
@@ -20,5 +33,4 @@
         <input type="text" asp-for="EnderecoId" class="form-control" placeholder="Digite o endereco da academia">
     </div>
     <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
-    <a class="btn btn-secondary btn-block" asp-controller="Rede" asp-action="Index" role="button">Voltar</a>
 </form>

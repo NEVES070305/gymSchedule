@@ -4,8 +4,22 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Cadastrar Endereço</h1>
+
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                Listar
+            </div>
+            <div class="col">
+                Cadastrar
+            </div>
+            <div class="col">
+                Editar
+            </div>
+        </div>
+    </div>
 </div>
+
 <form asp-controller="Endereco" asp-action="Criar" method="post">
     <div class="form-group">
         <label for="id">Id</label>
@@ -32,5 +46,4 @@
         <input type="text" asp-for="Bairro" class="form-control" placeholder="Digite o bairro">
     </div>
     <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
-    <a class="btn btn-secondary btn-block" asp-controller="Endereco" asp-action="Index" role="button">Voltar</a>
 </form>

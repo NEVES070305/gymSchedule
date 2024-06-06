@@ -4,8 +4,22 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Cadastrar academia</h1>
+   
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                Listar
+            </div>
+            <div class="col">
+                Cadastrar
+            </div>
+            <div class="col">
+                Editar
+            </div>
+        </div>
+    </div>
 </div>
+
 <form asp-controller="Contato" asp-action="Criar" method="post">
     <div class="form-group">
         <label for="nome">Nome</label>
@@ -24,5 +38,4 @@
         <input type="text" asp-for="CnpjRede" class="form-control" placeholder="Caso seja de rede, digite o o CNPJ da rede">
     </div>
     <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
-    <a class="btn btn-secondary btn-block" asp-controller="Contato" asp-action="Index" role="button">Voltar</a>
 </form>
