@@ -1,28 +1,81 @@
 ﻿@model Pessoa
 @{
-    ViewData["Title"] = "Cadastrar Pessoa";
+    ViewData["Title"] = "Gerenciar Pessoa";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Cadastrar Pessoa</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button id="btn_Listar" class="btn btn-primary btn-block">Listar</button>
+            </div>
+            <div class="col">
+                <button id="btn_Cadastrar" class="btn btn-primary btn-block">Cadastrar</button>
+            </div>
+            <div class="col">
+               <button id="btn_Editar" class="btn btn-primary btn-block">Editar</button>
+            </div>
+        </div>
+    </div>
 </div>
-<form asp-controller="Pessoa" asp-action="Criar" method="post">
-    <div class="form-group">
-        <label for="nome">Nome</label>
-        <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o seu nome">
+<!-- Div de Componentes -->
+<div id="components" style="margin-top:30px">
+        <!-- Listar Pessoa -->
+    <div id="Listar_Pessoa" class="component" style="display: flex;">
+        <p>Conteúdo de Listar Pessoa</p>
     </div>
-    <div class="form-group">
-        <label for="idendereco">Id Endereco</label>
-        <input type="text" asp-for="EnderecoId" class="form-control" placeholder="Digite o id do endereço">
+    <!-- Cadastrar Pessoa -->
+    <div id="Cadastrar_Pessoa" class="component" style="display: none;">
+        <form asp-controller="Pessoa" asp-action="Criar" method="post">
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o seu nome">
+            </div>
+            <div class="form-group">
+                <label for="idendereco">Id Endereco</label>
+                <input type="text" asp-for="EnderecoId" class="form-control" placeholder="Digite o id do endereço">
+            </div>
+            <div class="form-group">
+                <label for="CPF">CPF</label>
+                <input type="text" asp-for="CPF" class="form-control" placeholder="Digite o seu CPF">
+            </div>
+            <div class="form-group">
+                <label for="role">Role</label>
+                <input type="text" asp-for="RoleName" class="form-control" placeholder="Digite seu cargo">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
+        </form>
     </div>
-    <div class="form-group">
-        <label for="CPF">CPF</label>
-        <input type="text" asp-for="CPF" class="form-control" placeholder="Digite o seu CPF">
+    <!-- Editar -->
+    <div id="Editar_Pessoa" class="component" style="display: none;">
+        <p>Conteúdo de Editar Pessoa</p>
     </div>
-    <div class="form-group">
-        <label for="role">Role</label>
-        <input type="text" asp-for="RoleName" class="form-control" placeholder="Digite seu cargo">
-    </div>
-    <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
-    <a class="btn btn-secondary btn-block" asp-controller="Endereco" asp-action="Index" role="button">Voltar</a>
-</form>
+</div>
+
+<script>
+    // Função para exibir o componente correspondente
+    function exibeComponente(index) {
+        var componentes = document.querySelectorAll('.component');
+        componentes.forEach((comp, idx) => {
+            if (idx === index) {
+                comp.style.display = "flex";
+            } else {
+                comp.style.display = "none";
+            }
+        });
+    }
+
+    // Adiciona event listeners aos botões
+    document.getElementById("btn_Listar").addEventListener("click", function() {
+        exibeComponente(0); // Exibe Listar_Pessoa
+    });
+
+    document.getElementById("btn_Cadastrar").addEventListener("click", function() {
+        exibeComponente(1); // Exibe Cadastrar_Pessoa
+    });
+
+    document.getElementById("btn_Editar").addEventListener("click", function() {
+        exibeComponente(2); // Exibe Editar_Pessoa
+    });
+
+</script>
