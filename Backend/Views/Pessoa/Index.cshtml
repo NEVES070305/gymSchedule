@@ -12,17 +12,22 @@
             <div class="col">
                 <button id="btn_Cadastrar" class="btn btn-primary btn-block">Cadastrar</button>
             </div>
-            <div class="col">
+            @* <div class="col">
                <button id="btn_Editar" class="btn btn-primary btn-block">Editar</button>
-            </div>
+            </div> *@
         </div>
     </div>
 </div>
 <!-- Div de Componentes -->
 <div id="components" style="margin-top:30px">
         <!-- Listar Pessoa -->
-    <div id="Listar_Pessoa" class="component" style="display: flex;">
+    <div id="Listar_Pessoa" class="component" style="display:flex inline-flex;">
         <p>Conteúdo de Listar Pessoa</p>
+        <div style="display:flex; flex-direction:row">
+            <p style="width:200px;">Nome</p>
+            <p style="width:200px">Endereço</p>
+            <p style="width:200px">CPF</p>
+        </div>
     </div>
     <!-- Cadastrar Pessoa -->
     <div id="Cadastrar_Pessoa" class="component" style="display: none;">
@@ -49,6 +54,7 @@
     <!-- Editar -->
     <div id="Editar_Pessoa" class="component" style="display: none;">
         <p>Conteúdo de Editar Pessoa</p>
+        
     </div>
 </div>
 
