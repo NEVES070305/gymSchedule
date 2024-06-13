@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Backend.Models;
 using Microsoft.EntityFrameworkCore;
+using Backend.Configuration;
 
 namespace Backend
 {
@@ -25,7 +26,7 @@ namespace Backend
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             builder.Services.AddScoped<EnderecoRepository>();
             builder.Services.AddScoped<PessoaRepository>();
-
+            var key = Encoding.ASCII.GetBytes(Settings.Secret);
             // JWT Authentication
             builder.Services.AddAuthentication(options =>
             {
@@ -38,13 +39,10 @@ namespace Backend
                 options.SaveToken = true;
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = builder.Configuration["Jwt:Issuer"],
-                    ValidAudience = builder.Configuration["Jwt:Audience"],
-                    IssuerSigningKey = new SymmetricSecurityKey(key)
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
                 };
             });
 

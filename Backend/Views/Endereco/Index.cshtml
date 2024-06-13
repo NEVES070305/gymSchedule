@@ -18,62 +18,57 @@
         </div>
     </div>
 </div>
-<<<<<<< HEAD
-<form asp-controller="Endereco" asp-action="Criar" method="post">
-        <div class="form-group">
-        <label for="cidade">Cidade</label>
-        <input type="text" asp-for="Cidade" class="form-control" placeholder="Digite a cidade">
-=======
-<!-- Div de Componentes -->
-<div id="components" style="margin-top:30px">
-    <!-- Listar Endereço -->
-    <div id="Listar_Endereco" class="component" style="display: flex;">
-        <p>Conteúdo de Listar Endereco</p>
-    </div>
 
-    <!-- Cadastrar Endereço -->
-    <div id="Cadastrar_Endereco" class="component" style="display: none;">
+    <div id="components" style="margin-top:30px">
+        <!-- Listar Endereço -->
+        <div id="Listar_Endereco" class="component" style="display: flex;">
+            <p>Conteúdo de Listar Endereco</p>
+        </div>
+
+        <!-- Cadastrar Endereço -->
+        <div id="Cadastrar_Endereco" class="component" style="display: none;">
         
-               <form asp-controller="Endereco" asp-action="Criar" method="post">
-            <div class="form-group">
-                <label for="id">Id</label>
-                <input type="text" asp-for="Id" class="form-control" placeholder="Digite o id">
-            </div>
-            <div class="form-group">
-                <label for="cidade">Cidade</label>
-                <input type="text" asp-for="Cidade" class="form-control" placeholder="Digite a cidade">
-            </div>
-            <div class="form-group">
-                <label for="rua">Rua</label>
-                <input type="text" asp-for="Rua" class="form-control" placeholder="Digite a rua">
-            </div>
-            <div class="form-group">
-                <label for="numero">Numero</label>
-                <input type="text" asp-for="Numero" class="form-control" placeholder="Digite o número">
-            </div>
-            <div class="form-group">
-                <label for="estado">Estado</label>
-                <input type="text" asp-for="Estado" class="form-control" placeholder="Digite o estado">
-            </div>
-            <div class="form-group">
-                <label for="bairro">Bairro</label>
-                <input type="text" asp-for="Bairro" class="form-control" placeholder="Digite o bairro">
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
-        </form>
->>>>>>> 83bc4cd321ddbdc4392355f458c20cf66d6c97d9
+            <form asp-controller="Endereco" asp-action="Criar" method="post">
+                <div class="form-group">
+                    <label for="id">Id</label>
+                    <input type="text" asp-for="Id" class="form-control" placeholder="Digite o id">
+                </div>
+                <div class="form-group">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" asp-for="Cidade" class="form-control" placeholder="Digite a cidade">
+                </div>
+                <div class="form-group">
+                    <label for="rua">Rua</label>
+                    <input type="text" asp-for="Rua" class="form-control" placeholder="Digite a rua">
+                </div>
+                <div class="form-group">
+                    <label for="numero">Numero</label>
+                    <input type="text" asp-for="Numero" class="form-control" placeholder="Digite o número">
+                </div>
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <input type="text" asp-for="Estado" class="form-control" placeholder="Digite o estado">
+                </div>
+                <div class="form-group">
+                    <label for="bairro">Bairro</label>
+                    <input type="text" asp-for="Bairro" class="form-control" placeholder="Digite o bairro">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
+            </form>
+
+        </div>
+
+        <!-- Editar Endereço -->
+        <div id="Editar_Endereco" class="component" style="display: none;">
+            <p>Conteúdo de Editar Endereco</p>
+        </div>
     </div>
 
-    <!-- Editar Endereço -->
-    <div id="Editar_Endereco" class="component" style="display: none;">
-        <p>Conteúdo de Editar Endereco</p>
-    </div>
-</div>
 
 <script>
     // Função para exibir o componente correspondente
     function exibeComponente(index) {
-        var componentes = document.querySelectorAll('.component');
+        var componentes = document.querySelectorAll('#components');
         componentes.forEach((comp, idx) => {
             if (idx === index) {
                 comp.style.display = "flex";
