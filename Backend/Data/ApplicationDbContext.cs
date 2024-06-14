@@ -47,7 +47,7 @@ namespace Backend.Data
                 .HasKey(e => e.Id);  // Definindo a chave primária
 
             modelBuilder.Entity<Pessoa>()
-                .HasKey(p => p.Id);  // Definindo a chave primária
+                .HasKey(p => p.CPF);  // Definindo a chave primária
 
             modelBuilder.Entity<Pessoa>()
                 .HasOne(p => p.Endereco)
