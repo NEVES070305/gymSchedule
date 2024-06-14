@@ -5,99 +5,76 @@
 
 <div class="text-center">
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <button id="btn_Listar" class="btn btn-primary btn-block">Listar</button>
-            </div>
-            <div class="col">
-                <button id="btn_Cadastrar" class="btn btn-primary btn-block">Cadastrar</button>
-            </div>
+        <div style="display:flex; flex-direction:row; justify-content:space-around;">
+            <h4>Pessoas</h4>
+            <a class="btn btn-primary" style="margin-right:5px;" asp-controller="Pessoa" asp-action="Cadastrar">Cadastrar</a>
+        </div>
             @* <div class="col">
                <button id="btn_Editar" class="btn btn-primary btn-block">Editar</button>
             </div> *@
-        </div>
     </div>
 </div>
-<!-- Div de Componentes -->
-<div id="components" style="margin-top:30px">
-        <!-- Listar Pessoa -->
-    <div id="Listar_Pessoa" class="component" style="display:flex inline-flex;">
-        <p>Conteúdo de Listar Pessoa</p>
-        <div style="display:flex; flex-direction:row">
-            <p style="width:200px;">Nome</p>
-            <p style="width:200px">Endereço</p>
-            <p style="width:200px">CPF</p>
-        </div>
-    </div>
-    <!-- Cadastrar Pessoa -->
-    <div id="Cadastrar_Pessoa" class="component" style="display: none;">
-        <form asp-controller="Pessoa" asp-action="Criar" method="post">
-            <div class="form-group">
-                <label for="nome">Nome</label>
-                <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome do novo usuário">
-            </div>
-            <div class="form-group">
-                <label for="sobrenome">Sobrenome</label>
-                <input type="text" asp-for="Sobrenome" class="form-control" placeholder="Digite o sobrenome do novo usuário">
-            </div>
-            <div class="form-group">
-                <label for="ultimonome">Último nome</label>
-                <input type="text" asp-for="UltimoNome" class="form-control" placeholder="Digite o sobrenome do novo usuário">
-            </div>
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" asp-for="Username" class="form-control" placeholder="Digite o username do no usuário">
-            </div>
-            <div class="form-group">
-                <label for="senha">Senha</label>
-                <input type="text" asp-for="Password" class="form-control" placeholder="Digite a senha do usuário">
-            </div>
-            <div class="form-group">
-                <label for="idendereco">Id Endereco</label>
-                <input type="text" asp-for="EnderecoId" class="form-control" placeholder="Digite o id do endereço">
-            </div>
-            <div class="form-group">
-                <label for="CPF">CPF</label>
-                <input type="text" asp-for="CPF" class="form-control" placeholder="Digite o seu CPF">
-            </div>
-            <div class="form-group">
-                <label for="role">Role</label>
-                <input type="text" asp-for="RoleName" class="form-control" placeholder="Digite seu cargo">
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
-        </form>
-    </div>
-    <!-- Editar -->
-    <div id="Editar_Pessoa" class="component" style="display: none;">
-        <p>Conteúdo de Editar Pessoa</p>
-        
-    </div>
+<div id="Listar_Pessoa"  style="display:flex inline-flex; flex-direction:column;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Sobrenome</th>
+                <th scope="col">UserName</th>
+                <th scope="col">Password</th>
+                <th scope="col">Id Endereco</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Role</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>001</td>
+                <td>Sorocaba</td>
+                <td>Paulo Emanuel</td>
+                <td>55</td>
+                <td>SP</td>
+                <td>Paulo</td>
+                <td>Paulo</td>
+                <td>
+                    <a role="button" class="btn btn-dark" style="margin-right:5px;" asp-controller="Pessoa" asp-action="Editar">Editar</a>
+                    <a role="button" class="btn btn-danger">Apagar</a>
+                </td>
+                    
+            </tr>
+            <tr>
+                <th scope="row">1</th>
+                <td>001</td>
+                <td>Sorocaba</td>
+                <td>Paulo Emanuel</td>
+                <td>55</td>
+                <td>SP</td>
+                <td>Paulo</td>
+                <td>Paulo</td>
+                <td>
+                    <a role="button" class="btn btn-dark" style="margin-right:5px;">Editar</a>
+                    <a role="button" class="btn btn-danger">Apagar</a>
+                </td>
+
+            </tr>
+            <tr>
+                <th scope="row">1</th>
+                <td>001</td>
+                <td>Sorocaba</td>
+                <td>Paulo Emanuel</td>
+                <td>55</td>
+                <td>SP</td>
+                <td>Paulo</td>
+                <td>Paulo</td>
+                <td>
+                    <a role="button" class="btn btn-dark" style="margin-right:5px;">Editar</a>@* modificar para referenciar o ID  *@
+                    <a role="button" class="btn btn-danger">Apagar</a>@*Referenciar para apagar por ID*@
+                </td>
+
+            </tr>
+               
+        </tbody>
+    </table>
 </div>
-
-<script>
-    // Função para exibir o componente correspondente
-    function exibeComponente(index) {
-        var componentes = document.querySelectorAll('.component');
-        componentes.forEach((comp, idx) => {
-            if (idx === index) {
-                comp.style.display = "flex";
-            } else {
-                comp.style.display = "none";
-            }
-        });
-    }
-
-    // Adiciona event listeners aos botões
-    document.getElementById("btn_Listar").addEventListener("click", function() {
-        exibeComponente(0); // Exibe Listar_Pessoa
-    });
-
-    document.getElementById("btn_Cadastrar").addEventListener("click", function() {
-        exibeComponente(1); // Exibe Cadastrar_Pessoa
-    });
-
-    document.getElementById("btn_Editar").addEventListener("click", function() {
-        exibeComponente(2); // Exibe Editar_Pessoa
-    });
-
-</script>
