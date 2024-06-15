@@ -1,84 +1,67 @@
 ﻿@model Academia
 @{
-    ViewData["Title"] = "Cadastrar adademia";
+    ViewData["Title"] = "Listar adademia";
 }
 
 <div class="text-center">
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <button id="btn_Listar" class="btn btn-primary btn-block">Listar</button>
-            </div>
-            <div class="col">
-                <button id="btn_Cadastrar" class="btn btn-primary btn-block">Cadastrar</button>
-            </div>
-            @* <div class="col">
-               <button id="btn_Editar" class="btn btn-primary btn-block">Editar</button>
-            </div> *@
+        <div style="display:flex; flex-direction:row; justify-content:space-around;">
+            <h4>Academia</h4>
+            <a class="btn btn-primary" style="margin-right:5px;" asp-controller="Academia" asp-action="Cadastrar">Cadastrar</a>
         </div>
+        @* <div class="col">
+        <button id="btn_Editar" class="btn btn-primary btn-block">Editar</button>
+        </div> *@
     </div>
 </div>
-<!-- Div de Componentes -->
-<div id="components" style="margin-top:30px">
+
     <!-- Listar Academia -->
-    <div id="Listar_Academia" class="component" style="display: flex;">
-        <p>Conteúdo de Listar Academia</p>
+    <div id="Listar_Academia" style="display: flex;flex-direction:column;">
+        <h2>Academias</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">CNPJ</th>
+                    <th scope="col">Endereço</th>
+                    <th scope="col">Rede</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>001</td>
+                    <td>Sorocaba</td>
+                    <td>Paulo Emanuel</td>
+                    <td>55</td>
+                    <td>
+                        <a role="button" class="btn btn-dark" style="margin-right:5px;" asp-controller="Academia" asp-action="Editar">Editar</a>
+                        <a role="button" class="btn btn-danger">Apagar</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>002</td>
+                    <td>São Paulo</td>
+                    <td>Praça estrela do Norte</td>
+                    <td>110</td>
+                    <td>
+                        <a role="button" class="btn btn-dark" style="margin-right:5px;" asp-controller="Academia" asp-action="Editar">Editar</a>
+                        <a role="button" class="btn btn-danger">Apagar</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>mdo</td>
+                    <td>Mark</td>
+                    <td>
+                        <a role="button" class="btn btn-dark" style="margin-right:5px;" asp-controller="Academia" asp-action="Editar">Editar</a>
+                        <a role="button" class="btn btn-danger">Apagar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-
-    <!-- Cadastrar Academia -->
-    <div id="Cadastrar_Academia" class="component" style="display: none;">
-        <form asp-controller="Contato" asp-action="Criar" method="post">
-            <div class="form-group">
-                <label for="nome">Nome</label>
-                <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome do academia">
-            </div>
-            <div class="form-group">
-                <label for="cnpj">CNPJ</label>
-                <input type="text" asp-for="Cnpj" class="form-control" placeholder="Digite o CNPJ da academia">
-            </div>
-            <div class="form-group">
-                <label for="endereco">Endereço</label>
-                <input type="text" asp-for="EnderecoId" class="form-control" placeholder="Digite o endereco da academia">
-            </div>
-            <div class="form-group">
-                <label for="rede">Rede</label>
-                <input type="text" asp-for="CnpjRede" class="form-control" placeholder="Caso seja de rede, digite o o CNPJ da rede">
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
-        </form>
-    </div>
-
-    <!-- Editar -->
-    <div id="Editar_Academia" class="component" style="display: none;">
-        
-        <p>Conteúdo de Editar Academia</p>
-    </div>
-</div>
-
-<script>
-    // Função para exibir o componente correspondente
-    function exibeComponente(index) {
-        var componentes = document.querySelectorAll('.component');
-        componentes.forEach((comp, idx) => {
-            if (idx === index) {
-                comp.style.display = "flex";
-            } else {
-                comp.style.display = "none";
-            }
-        });
-    }
-
-    // Adiciona event listeners aos botões
-    document.getElementById("btn_Listar").addEventListener("click", function() {
-        exibeComponente(0); // Exibe Listar_Academia
-    });
-
-    document.getElementById("btn_Cadastrar").addEventListener("click", function() {
-        exibeComponente(1); // Exibe Cadastrar_Academia
-    });
-
-    document.getElementById("btn_Editar").addEventListener("click", function() {
-        exibeComponente(2); // Exibe Editar_Academia
-    });
-
-</script>
