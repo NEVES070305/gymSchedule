@@ -1,0 +1,43 @@
+﻿@model Endereco
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Cadastrar Endereco";
+}
+<div id="Editar_Pessoa" style="display:flex; flex-direction:row; justify-content:space-around">
+    <h4>Cadastrar</h4>
+    <a role="button" class="btn btn-primary" style="margin-right:5px;" asp-controller="Endereco" asp-action="Index">Voltar</a>
+
+</div>
+
+
+<div>
+    <form asp-controller="Endereco" asp-action="Criar" method="post">
+        <div class="form-group">
+            <label for="Id">Id</label>
+            <input type="text" asp-for="Id" class="form-control" placeholder="Digite o Id do Endereço">
+        </div>
+        <div class="form-group">
+            <label for="Estado">Estado</label>
+            <input type="text" asp-for="Estado" class="form-control" placeholder="Digite o Estado">
+        </div>
+        <div class="form-group">
+            <label for="cidade">Cidade</label>
+            <input type="text" asp-for="Cidade" class="form-control" placeholder="Digite a Cidade">
+        </div>
+        <div class="form-group">
+            <label for="bairro">Bairro</label>
+            <input type="text" asp-for="Bairro" class="form-control" placeholder="Bairro">
+        </div>
+        <div class="form-group">
+            <label for="rua">Rua</label>
+            <input type="text" asp-for="Rua" class="form-control" placeholder="Rua">
+        </div>
+        <div class="form-group">
+            <label for="Numero">Numero</label>
+            <input type="text" asp-for="Numero" class="form-control" placeholder="Numero">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
+    </form>
+</div>
