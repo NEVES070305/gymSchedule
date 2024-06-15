@@ -17,12 +17,6 @@ namespace Backend.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Criar(Pessoa pessoa)
-        {
-            pessoaRepository.Adicionar(pessoa);
-            return RedirectToAction("Index");
-        }
-        /*    CRIANDO EDITAR E APAGAR - André  Minuto-26    */
         public IActionResult Editar()
         {
             return View();
@@ -34,6 +28,11 @@ namespace Backend.Controllers
         public IActionResult Cadastrar()
         {
             return View();
+        }
+        public IActionResult Criar(Pessoa pessoa)
+        {
+            pessoaRepository.Adicionar(pessoa);
+            return RedirectToAction("Index");
         }
     }
 }
