@@ -1,0 +1,70 @@
+﻿@model Endereco
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Listar adademia";
+}
+
+<div class="text-center">
+    <div class="container">
+        <div style="display:flex; flex-direction:row; justify-content:space-around;">
+            <h4>Endereço</h4>
+            <a class="btn btn-primary" style="margin-right:5px;" asp-controller="Endereco" asp-action="Cadastrar">Cadastrar</a>
+        </div>
+        @* <div class="col">
+        <button id="btn_Editar" class="btn btn-primary btn-block">Editar</button>
+        </div> *@
+    </div>
+</div>
+
+<!-- Listar Academia -->
+<div id="Listar_Endereco" style="display: flex;flex-direction:column;">
+    <h2>Academias</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">CNPJ</th>
+                <th scope="col">Endereço</th>
+                <th scope="col">Rede</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>001</td>
+                <td>Sorocaba</td>
+                <td>Paulo Emanuel</td>
+                <td>55</td>
+                <td>
+                    <a role="button" class="btn btn-dark" style="margin-right:5px;" asp-controller="Endereco" asp-action="Editar">Editar</a>
+                    <a role="button" class="btn btn-danger">Apagar</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>002</td>
+                <td>São Paulo</td>
+                <td>Praça estrela do Norte</td>
+                <td>110</td>
+                <td>
+                    <a role="button" class="btn btn-dark" style="margin-right:5px;" asp-controller="Endereco" asp-action="Editar">Editar</a>
+                    <a role="button" class="btn btn-danger">Apagar</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>mdo</td>
+                <td>Mark</td>
+                <td>
+                    <a role="button" class="btn btn-dark" style="margin-right:5px;" asp-controller="Endereco" asp-action="Editar">Editar</a>
+                    <a role="button" class="btn btn-danger">Apagar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -14,6 +14,14 @@ namespace Backend.Controllers
             this.enderecoRepository = enderecoRepository;
         }
 
+        public IActionResult Index()
+        {
+            return View();
+        }
+        public IActionResult Editar()
+        {
+            return View();
+        }
         public IActionResult Cadastrar()
         {
             return View();
