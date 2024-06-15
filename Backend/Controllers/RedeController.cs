@@ -10,10 +10,6 @@ namespace Backend.Controllers
         {
             return View();
         }
-        public IActionResult Criar()
-        {
-            return View();
-        }
 
         public IActionResult Editar()
         {

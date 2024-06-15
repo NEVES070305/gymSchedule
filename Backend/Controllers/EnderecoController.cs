@@ -1,4 +1,5 @@
 ﻿using Backend.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Controllers
@@ -13,7 +14,7 @@ namespace Backend.Controllers
             this.enderecoRepository = enderecoRepository;
         }
 
-        public IActionResult Index()
+        public IActionResult Cadastrar()
         {
             return View();
         }

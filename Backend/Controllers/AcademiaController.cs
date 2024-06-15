@@ -10,7 +10,7 @@ namespace Backend.Controllers
         {
             return View();
         }
-        public IActionResult Criar()
+        public IActionResult Cadastrar()
         {
             return View();
         }
