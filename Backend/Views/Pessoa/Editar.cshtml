@@ -12,19 +12,29 @@
 
 </div>
 <div>
-    <table class="table">
+    <form asp-controller="Pessoa" asp-action="Editar" method="post" class="table">
 
 
-        <td scope="col">Nome</td>
-        <td scope="col">Sobrenome</td>
-        <td scope="col">UserName</td>
-        <td scope="col">Password</td>
-        <td scope="col">Id Endereco</td>
-        <td scope="col">CPF</td>
-        <td scope="col">Role</td>
-        <td scope="col"></td>
+        <input type="hidden" asp-for="CPF" />
+        <div class="form-group">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome do contato">
+            @Html.ValidationMessageFor(x => x.Nome)
+        </div>
 
+        <div class="form-group">
+            <label for="nome" class="form-label">Username</label>
+            <input type="text" asp-for="Username" class="form-control" placeholder="Digite o e-mail do contato">
+            @Html.ValidationMessageFor(x => x.Username)
+        </div>
 
-        </
-        <table>
+        <div class="form-group">
+            <label for="nome" class="form-label">Endereço Id</label>
+            <input type="text" asp-for="EnderecoId" class="form-control" placeholder="Digite o celular do contato">
+            @Html.ValidationMessageFor(x => x.EnderecoId)
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+        <a class="btn btn-secondary btn-block" asp-action="Index" asp-controller="Contato" role="button">Voltar</a>
+    </form>
 </div>

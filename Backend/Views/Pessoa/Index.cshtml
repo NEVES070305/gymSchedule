@@ -1,4 +1,4 @@
-﻿@model Pessoa
+﻿@model List<Pessoa>
 @{
     ViewData["Title"] = "Gerenciar Pessoa";
 }
@@ -11,67 +11,47 @@
         </div>
     </div>
 </div>
-<div id="Listar_Pessoa"  style="display:flex inline-flex; flex-direction:column;">
-    <table class="table">
+<div id="Listar_Pessoa" style="display:flex inline-flex; flex-direction:column;">
+    <h1 class="display-4">Listagem de contatos</h1>
+
+    <table id="table-contatos" class="display" style="width:100%">
         <thead>
             <tr>
+                <th scope="col">CPF</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Sobrenome</th>
-                <th scope="col">UserName</th>
-                <th scope="col">Password</th>
-                <th scope="col">Id Endereco</th>
-                <th scope="col">CPF</th>
-                <th scope="col">Role</th>
-                <th scope="col"></th>
+                <th scope="col">Ultimo Nome</th>
+                <th scope="col">Username</th>
+                <th scope="col">Endereço</th>
+                <th scope="col">RoleName</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>001</td>
-                <td>Sorocaba</td>
-                <td>Paulo Emanuel</td>
-                <td>55</td>
-                <td>SP</td>
-                <td>Paulo</td>
-                <td>Paulo</td>
-                <td>
-                    <a role="button" class="btn btn-dark" style="margin-right:5px;" asp-controller="Pessoa" asp-action="Editar">Editar</a>
-                    <a role="button" class="btn btn-danger">Apagar</a>
-                </td>
-                    
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>001</td>
-                <td>Sorocaba</td>
-                <td>Paulo Emanuel</td>
-                <td>55</td>
-                <td>SP</td>
-                <td>Paulo</td>
-                <td>Paulo</td>
-                <td>
-                    <a role="button" class="btn btn-dark" style="margin-right:5px;">Editar</a>
-                    <a role="button" class="btn btn-danger">Apagar</a>
-                </td>
-
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>001</td>
-                <td>Sorocaba</td>
-                <td>Paulo Emanuel</td>
-                <td>55</td>
-                <td>SP</td>
-                <td>Paulo</td>
-                <td>Paulo</td>
-                <td>
-                    <a role="button" class="btn btn-dark" style="margin-right:5px;">Editar</a>@* modificar para referenciar o ID  *@
-                    <a role="button" class="btn btn-danger">Apagar</a>@*Referenciar para apagar por ID*@
-                </td>
-
-            </tr>
-               
+            @if (Model != null && Model.Any())
+            {
+                foreach (var pessoa in Model)
+                {
+                    <tr>
+                        <th scope="row">@pessoa.CPF</th>
+                        <td>@pessoa.Nome/td>
+                        <td>@pessoa.Sobrenome</td>
+                        <td>@pessoa.UltimoNome</td>
+                        <td>@pessoa.Username</td>
+                        <td>@pessoa.EnderecoId</td>
+                        <td>@pessoa.RoleName</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" asp-action="Editar" asp-controller="Pessoa" asp-route-id="@pessoa.CPF" class="btn btn-primary">Editar</a>
+                                <a role="button" asp-action="ApagarConfirmacao" asp-controller="Pessoa" asp-route-id="@pessoa.CPF" class="btn btn-danger">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr class="odd"><td valign="top" colspan="5">Nenhuma pessoa encontrada</td></tr>
+            }
         </tbody>
     </table>
 </div>

@@ -12,13 +12,35 @@ namespace Backend.Controllers
         {
             this.pessoaRepository = pessoaRepository;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var pessoas = pessoaRepository.Listar();
+            return View(pessoas);
         }
-        public IActionResult Editar()
+        [HttpPost]
+        public IActionResult Editar(Pessoa pessoa)
         {
-            return View();
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    pessoa = pessoaRepository.Editar(pessoa);
+                    TempData["MensagemSucesso"] = "Contato alterado com sucesso!";
+                    return RedirectToAction("Index");
+                }
+
+                return View(pessoa);
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ops, não conseguimos atualizar seu contato, tente novamante, detalhe do erro: {erro.Message}";
+                return RedirectToAction("Index");
+            }
+        }
+        public IActionResult Editar(int cpf)
+        {
+            Pessoa pessoa = pessoaRepository.BuscarPorID(cpf);
+            return View(pessoa);
         }
         public IActionResult Apagar()
         {

@@ -22,7 +22,7 @@ namespace Backend.Repository
             return _applicationDbContext.Pessoas.FirstOrDefault(u => u.Username == loginModel.Username && u.Password == loginModel.Password);
         }
 
-        public List<Pessoa> ListarPessoas()
+        public List<Pessoa> Listar()
         {
             return _applicationDbContext.Pessoas.ToList();
         }
