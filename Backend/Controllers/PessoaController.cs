@@ -16,7 +16,6 @@ namespace Backend.Controllers
         {
             return View();
         }
-        [HttpPost]
         public IActionResult Editar()
         {
             return View();
@@ -29,6 +28,7 @@ namespace Backend.Controllers
         {
             return View();
         }
+        [HttpPost]
         public IActionResult Criar(Pessoa pessoa)
         {
             pessoaRepository.Adicionar(pessoa);

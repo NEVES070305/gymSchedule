@@ -1,15 +1,13 @@
 ﻿using Backend.Data;
 using Backend.Models;
+using Backend.Repository;
 using GymScheduleBackend.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
 using Microsoft.Extensions.Logging;
 
 namespace Backend.Controllers
@@ -18,17 +16,25 @@ namespace Backend.Controllers
     [Route("/")]
     public class LoginController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly PessoaRepository _pessoaRepository;
 
-
-        public LoginController(ApplicationDbContext context)
+        public LoginController(PessoaRepository pessoaRepository)
         {
-            _context = context;
+            _pessoaRepository = pessoaRepository;
         }
 
         [HttpGet]
         public IActionResult Index()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult LogarView(LoginModel loginModel)
+        {
+            var existingUser = _pessoaRepository.BuscarPorUsernameESenha(loginModel);
+            if (existingUser == null)
+                return RedirectToAction("Index", "Home");
             return View();
         }
 
@@ -42,7 +48,7 @@ namespace Backend.Controllers
                     return BadRequest(ModelState);
                 }
 
-                var existingUser = _context.Pessoas.FirstOrDefault(u => u.Username == loginModel.Username && u.Password == loginModel.Password);
+                var existingUser = _pessoaRepository.BuscarPorUsernameESenha(loginModel);
                 if (existingUser == null)
                 {
                     return NotFound("Usuário ou senha incorretos.");
@@ -73,8 +79,5 @@ namespace Backend.Controllers
                 return StatusCode(500, "Ocorreu um erro interno no servidor.");
             }
         }
-
-
-
-            }
-        }
+    }
+}
