@@ -4,7 +4,7 @@ namespace Backend.Configuration
 {
     public static class Settings
     {
-        public static string Secret = "wshkxuzygfdwqcysguihdwkjnvb";
+        public static string Secret = "wshkxuzygfdwqcysguihdwkjnvbgdfgssfjghkgbnvbn";
     }
 }
 
