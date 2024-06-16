@@ -10,13 +10,15 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.Extensions.Logging;
 
 namespace Backend.Controllers
 {
+    [ApiController]
+    [Route("/")]
     public class LoginController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IConfiguration _configuration;
 
 
         public LoginController(ApplicationDbContext context)
@@ -30,44 +32,49 @@ namespace Backend.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult<dynamic> Index(Pessoa model)
+        [HttpPost("login/token")]
+        public ActionResult<dynamic> Logar([FromBody] LoginModel loginModel)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return View(model);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var existingUser = _context.Pessoas.FirstOrDefault(u => u.Username == loginModel.Username && u.Password == loginModel.Password);
+                if (existingUser == null)
+                {
+                    return NotFound("Usuário ou senha incorretos.");
+                }
+
+                var token = JwtService.GenerateToken(existingUser);
+                var refreshToken = JwtService.GenerateRefreshToken();
+                JwtService.SaveRefreshToken(existingUser.Username, refreshToken);
+                CultureInfo.CurrentCulture = new CultureInfo("pt-BR");
+                var expiredDateToken = token.expirationDate ?? DateTime.MinValue;
+                DateTime timeUtc = expiredDateToken.ToUniversalTime();
+                TimeZoneInfo destinyTimeZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
+                DateTime expiredDateTokenBr = TimeZoneInfo.ConvertTimeFromUtc(timeUtc, destinyTimeZone);
+
+                loginModel.Password = "";
+
+                return new
+                {
+                    user = existingUser,
+                    token = token.token,
+                    refreshToken = refreshToken,
+                    expiredDateToken = expiredDateTokenBr,
+                };
             }
-
-            var existingUser = _context.Pessoas.FirstOrDefault(u => u.Username == model.Username && u.Password == model.Password);
-            if (existingUser == null)
+            catch (Exception)
             {
-                return NotFound("Usuário ou senha incorretos.");
+                // Logar o erro
+                return StatusCode(500, "Ocorreu um erro interno no servidor.");
             }
-            var token = JwtService.GenerateToken(existingUser);
-            var refreshToken = JwtService.GenerateRefreshToken();
-            JwtService.SaveRefreshToken(existingUser.Username, refreshToken);
-            CultureInfo.CurrentCulture = new CultureInfo("pt-BR");
-            var expiredDateToken = token.expirationDate;
-
-            // Convertendo DateTime? para DateTime usando coalescência nula
-            DateTime dateTime = expiredDateToken ?? DateTime.MinValue;
-
-            // Converte o horário original para UTC
-            DateTime timeUtc = dateTime.ToUniversalTime();
-
-            TimeZoneInfo destinyTimeZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
-            DateTime expiredDateTokenBr = TimeZoneInfo.ConvertTimeFromUtc(timeUtc, destinyTimeZone);
-
-            model.Password = "";
-            return new
-            {
-                user = existingUser,
-                token = token.token,
-                refreshToken = refreshToken,
-                expiredDateToken = expiredDateTokenBr,
-            };
         }
 
 
-    }
-}
+
+            }
+        }

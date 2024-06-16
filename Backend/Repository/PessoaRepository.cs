@@ -15,5 +15,10 @@ namespace Backend.Repository
             _applicationDbContext.SaveChanges();
             return pessoa;
         }
+
+        public Pessoa? BuscarPorLogin(string login)
+        {
+            return _applicationDbContext.Pessoas.FirstOrDefault(x => x.Username.ToUpper() == login.ToUpper());
+        }
     }
 }

@@ -20,6 +20,7 @@ namespace Backend
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddControllers();
 
             // Register the ApplicationDbContext with the connection string from appsettings.json
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -59,7 +60,7 @@ namespace Backend
             app.UseStaticFiles();
 
             app.UseRouting();
-            app.UseAuthentication(); // Adiciona a autenticação ao pipeline
+            app.UseAuthentication(); // Adiciona a autenticaï¿½ï¿½o ao pipeline
             app.UseAuthorization();
 
             app.MapControllerRoute(
