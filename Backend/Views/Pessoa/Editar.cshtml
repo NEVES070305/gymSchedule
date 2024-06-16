@@ -1,20 +1,14 @@
-﻿@model Pessoa
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model PessoaUpdateModel
 @{
-    ViewData["Title"] = "Editar Pessoa";
+    ViewData["Title"] = "Editar";
 }
 
 <div id="Editar_Pessoa" class="component" style="display:flex; flex-direction:row; justify-content:space-around">
-    <h4>Editar User : ID</h4>
+    <h4>Editar User : @Model.CPF</h4>
     <a role="button" class="btn btn-primary" style="margin-right:5px;" asp-controller="Pessoa" asp-action="Index">Voltar</a>
-
 </div>
 <div>
     <form asp-controller="Pessoa" asp-action="Editar" method="post" class="table">
-
-
         <input type="hidden" asp-for="CPF" />
         <div class="form-group">
             <label for="nome" class="form-label">Nome</label>
@@ -23,18 +17,18 @@
         </div>
 
         <div class="form-group">
-            <label for="nome" class="form-label">Username</label>
-            <input type="text" asp-for="Username" class="form-control" placeholder="Digite o e-mail do contato">
-            @Html.ValidationMessageFor(x => x.Username)
+            <label for="sobrenome" class="form-label">Sobrenome</label>
+            <input type="text" asp-for="Sobrenome" class="form-control" placeholder="Digite o seu sobrenome">
+            @Html.ValidationMessageFor(x => x.Sobrenome)
         </div>
 
         <div class="form-group">
-            <label for="nome" class="form-label">Endereço Id</label>
-            <input type="text" asp-for="EnderecoId" class="form-control" placeholder="Digite o celular do contato">
+            <label for="enderecoId" class="form-label">Endereço Id</label>
+            <input type="text" asp-for="EnderecoId" class="form-control" placeholder="Digite o endereço do contato">
             @Html.ValidationMessageFor(x => x.EnderecoId)
         </div>
 
         <button type="submit" class="btn btn-primary btn-block">Alterar</button>
-        <a class="btn btn-secondary btn-block" asp-action="Index" asp-controller="Contato" role="button">Voltar</a>
+        <a class="btn btn-secondary btn-block" asp-action="Index" asp-controller="Pessoa" role="button">Voltar</a>
     </form>
 </div>

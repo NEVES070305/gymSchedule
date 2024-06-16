@@ -1,15 +1,18 @@
 ﻿using Backend.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace Backend.Repository
 {
     public class PessoaRepository
     {
         private readonly ApplicationDbContext _applicationDbContext;
+
         public PessoaRepository(ApplicationDbContext applicationDbContext)
         {
             _applicationDbContext = applicationDbContext;
         }
+
         public Pessoa Adicionar(Pessoa pessoa)
         {
             _applicationDbContext.Pessoas.Add(pessoa);
@@ -17,9 +20,9 @@ namespace Backend.Repository
             return pessoa;
         }
 
-        public Pessoa? BuscarPorUsernameESenha(LoginModel loginModel)
+        public async Task<Pessoa?> BuscarPorIDAsync(int cpf)
         {
-            return _applicationDbContext.Pessoas.FirstOrDefault(u => u.Username == loginModel.Username && u.Password == loginModel.Password);
+            return await _applicationDbContext.Pessoas.FirstOrDefaultAsync(x => x.CPF == cpf);
         }
 
         public List<Pessoa> Listar()
@@ -27,38 +30,36 @@ namespace Backend.Repository
             return _applicationDbContext.Pessoas.ToList();
         }
 
-        public Pessoa Editar(Pessoa pessoa)
+        public async Task<Pessoa> EditarAsync(Pessoa pessoa)
         {
-            Pessoa pessoaDB = BuscarPorID(pessoa.CPF);
+            Pessoa pessoaDB = await BuscarPorIDAsync(pessoa.CPF);
 
-            if (pessoaDB == null) throw new Exception("Houve um erro na atualização do contato!");
+            if (pessoaDB == null)
+            {
+                throw new Exception("Houve um erro na atualização do contato!");
+            }
 
             pessoaDB.Nome = pessoa.Nome;
             pessoaDB.Sobrenome = pessoa.Sobrenome;
-            pessoaDB.UltimoNome = pessoa.UltimoNome;
-            pessoaDB.RoleName = pessoa.RoleName;
-            pessoaDB.EnderecoId = pessoa.EnderecoId;
-            pessoaDB.Password = pessoa.Password;
-            pessoaDB.Username = pessoa.Username;
+            // Atualize outros campos conforme necessário
 
             _applicationDbContext.Pessoas.Update(pessoaDB);
-            _applicationDbContext.SaveChanges();
+            await _applicationDbContext.SaveChangesAsync();
 
             return pessoaDB;
         }
-        public Pessoa? BuscarPorID(int cpf)
-        {
-            return _applicationDbContext.Pessoas.FirstOrDefault(x => x.CPF == cpf);
-        }
 
-        public bool Apagar(int id)
+        public async Task<bool> ApagarAsync(int cpf)
         {
-            Pessoa pessoaDB = BuscarPorID(id);
+            Pessoa pessoaDB = await BuscarPorIDAsync(cpf);
 
-            if (pessoaDB == null) throw new Exception("Houve um erro na deleção do contato!");
+            if (pessoaDB == null)
+            {
+                throw new Exception("Houve um erro na deleção do contato!");
+            }
 
             _applicationDbContext.Pessoas.Remove(pessoaDB);
-            _applicationDbContext.SaveChanges();
+            await _applicationDbContext.SaveChangesAsync();
 
             return true;
         }
