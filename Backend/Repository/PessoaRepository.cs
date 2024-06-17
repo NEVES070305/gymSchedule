@@ -1,18 +1,16 @@
 ﻿using Backend.Data;
+using Backend.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
 
 namespace Backend.Repository
 {
     public class PessoaRepository
     {
         private readonly ApplicationDbContext _applicationDbContext;
-
         public PessoaRepository(ApplicationDbContext applicationDbContext)
         {
             _applicationDbContext = applicationDbContext;
         }
-
         public Pessoa Adicionar(Pessoa pessoa)
         {
             _applicationDbContext.Pessoas.Add(pessoa);
@@ -20,9 +18,9 @@ namespace Backend.Repository
             return pessoa;
         }
 
-        public async Task<Pessoa?> BuscarPorIDAsync(int cpf)
+        public Pessoa? BuscarPorUsernameESenha(LoginModel loginModel)
         {
-            return await _applicationDbContext.Pessoas.FirstOrDefaultAsync(x => x.CPF == cpf);
+            return _applicationDbContext.Pessoas.FirstOrDefault(u => u.Username == loginModel.Username && u.Password == loginModel.Password);
         }
 
         public List<Pessoa> Listar()
@@ -30,36 +28,39 @@ namespace Backend.Repository
             return _applicationDbContext.Pessoas.ToList();
         }
 
-        public async Task<Pessoa> EditarAsync(Pessoa pessoa)
+        public Pessoa Editar(PessoaUpdateModel model)
         {
-            Pessoa pessoaDB = await BuscarPorIDAsync(pessoa.CPF);
+            Pessoa pessoaDB = _applicationDbContext.Pessoas.Find(model.CPF);
 
-            if (pessoaDB == null)
-            {
-                throw new Exception("Houve um erro na atualização do contato!");
-            }
+            if (pessoaDB == null) throw new Exception("Houve um erro na atualização do contato!");
 
-            pessoaDB.Nome = pessoa.Nome;
-            pessoaDB.Sobrenome = pessoa.Sobrenome;
-            // Atualize outros campos conforme necessário
+            pessoaDB.Nome = model.Nome;
+            pessoaDB.Sobrenome = model.Sobrenome;
+            pessoaDB.UltimoNome = model.UltimoNome;
+            pessoaDB.EnderecoId = model.EnderecoId;
 
-            _applicationDbContext.Pessoas.Update(pessoaDB);
-            await _applicationDbContext.SaveChangesAsync();
+            _applicationDbContext.Entry(pessoaDB).Property(p => p.Nome).IsModified = true;
+            _applicationDbContext.Entry(pessoaDB).Property(p => p.Sobrenome).IsModified = true;
+            _applicationDbContext.Entry(pessoaDB).Property(p => p.UltimoNome).IsModified = true;
+            _applicationDbContext.Entry(pessoaDB).Property(p => p.EnderecoId).IsModified = true;
+
+            _applicationDbContext.SaveChanges();
 
             return pessoaDB;
         }
-
-        public async Task<bool> ApagarAsync(int cpf)
+        public Pessoa? BuscarPorCPF(int cpf)
         {
-            Pessoa pessoaDB = await BuscarPorIDAsync(cpf);
+            return _applicationDbContext.Pessoas.FirstOrDefault(x => x.CPF == cpf);
+        }
 
-            if (pessoaDB == null)
-            {
-                throw new Exception("Houve um erro na deleção do contato!");
-            }
+        public bool Apagar(int cpf)
+        {
+            Pessoa pessoaDB = BuscarPorCPF(cpf);
+
+            if (pessoaDB == null) return false;
 
             _applicationDbContext.Pessoas.Remove(pessoaDB);
-            await _applicationDbContext.SaveChangesAsync();
+            _applicationDbContext.SaveChanges();
 
             return true;
         }

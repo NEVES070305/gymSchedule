@@ -4,11 +4,11 @@
 }
 
 <div id="Editar_Pessoa" class="component" style="display:flex; flex-direction:row; justify-content:space-around">
-    <h4>Editar User : @Model.CPF</h4>
+    <h4>Editar User: CPF</h4>
     <a role="button" class="btn btn-primary" style="margin-right:5px;" asp-controller="Pessoa" asp-action="Index">Voltar</a>
 </div>
 <div>
-    <form asp-controller="Pessoa" asp-action="Editar" method="post" class="table">
+    <form asp-controller="Pessoa" asp-action="Editar" method="post" class="form">
         <input type="hidden" asp-for="CPF" />
         <div class="form-group">
             <label for="nome" class="form-label">Nome</label>
