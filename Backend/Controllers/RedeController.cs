@@ -1,4 +1,5 @@
-﻿using Backend.Models;
+﻿using Backend.Data;
+using Backend.Models;
 using Backend.Repository;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,9 +7,11 @@ namespace Backend.Controllers
 {
     public class RedeController : Controller
     {
+        private readonly ApplicationDbContext context;
         private readonly RedeRepository redeRepository;
-        public RedeController(RedeRepository redeRepository){
+        public RedeController(RedeRepository redeRepository, ApplicationDbContext context){
             this.redeRepository = redeRepository;
+            this.context = context;
         }
         public async Task<IActionResult> Index()
         {
@@ -57,14 +60,29 @@ namespace Backend.Controllers
         {
             return View();
         }
-        public ActionResult ApagarConfirmacao(string cnpj)
+        public async Task<IActionResult> ApagarConfirmacao(string id)
         {
-            var rede = redeRepository.BuscarPorCnpj(cnpj);
-            if (rede == null)
+            var pessoa = await context.Redes.FindAsync(id);
+            if (pessoa == null)
             {
-                return View("Index");
+                return NotFound();
             }
-            return View(rede);
+            return View(pessoa);
+        }
+        public IActionResult Apagar(string cnpj)
+        {
+            try
+            {
+                bool apagado = redeRepository.Apagar(cnpj);
+
+                if (apagado) TempData["MensagemSucesso"] = "Contato apagado com sucesso!"; else TempData["MensagemErro"] = "Ops, não conseguimos cadastrar seu contato, tente novamante!";
+                return RedirectToAction("Index");
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ops, não conseguimos apagar seu contato, tente novamante, detalhe do erro: {erro.Message}";
+                return RedirectToAction("Index");
+            }
         }
         [HttpPost]
         public IActionResult Criar(Rede rede)

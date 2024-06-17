@@ -1,10 +1,11 @@
 ﻿@model PessoaUpdateModel
+
 @{
     ViewData["Title"] = "Editar";
 }
 
 <div id="Editar_Pessoa" class="component" style="display:flex; flex-direction:row; justify-content:space-around">
-    <h4>Editar User: CPF</h4>
+    <h4>Editar User: @Model.CPF</h4>
     <a role="button" class="btn btn-primary" style="margin-right:5px;" asp-controller="Pessoa" asp-action="Index">Voltar</a>
 </div>
 <div>
@@ -20,6 +21,12 @@
             <label for="sobrenome" class="form-label">Sobrenome</label>
             <input type="text" asp-for="Sobrenome" class="form-control" placeholder="Digite o seu sobrenome">
             @Html.ValidationMessageFor(x => x.Sobrenome)
+        </div>
+
+        <div class="form-group">
+            <label for="ultimoNome" class="form-label">Último Nome</label>
+            <input type="text" asp-for="UltimoNome" class="form-control" placeholder="Digite o seu último nome">
+            @Html.ValidationMessageFor(x => x.UltimoNome)
         </div>
 
         <div class="form-group">

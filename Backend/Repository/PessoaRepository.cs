@@ -7,10 +7,12 @@ namespace Backend.Repository
     public class PessoaRepository
     {
         private readonly ApplicationDbContext _applicationDbContext;
+
         public PessoaRepository(ApplicationDbContext applicationDbContext)
         {
             _applicationDbContext = applicationDbContext;
         }
+
         public Pessoa Adicionar(Pessoa pessoa)
         {
             _applicationDbContext.Pessoas.Add(pessoa);
@@ -48,6 +50,7 @@ namespace Backend.Repository
 
             return pessoaDB;
         }
+
         public Pessoa? BuscarPorCPF(int cpf)
         {
             return _applicationDbContext.Pessoas.FirstOrDefault(x => x.CPF == cpf);
