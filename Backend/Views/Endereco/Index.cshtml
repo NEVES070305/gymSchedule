@@ -1,0 +1,61 @@
+﻿@model List<Endereco>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Listar adademia";
+}
+
+<div class="text-center">
+    <div class="container">
+        <div style="display:flex; flex-direction:row; justify-content:space-around;">
+            <h4>Endereços</h4>
+            <a class="btn btn-primary" style="margin-right:5px;" asp-controller="Endereco" asp-action="Cadastrar">Cadastrar</a>
+        </div>
+    </div>
+</div>
+<!-- Listar Academia -->
+<div id="Listar_Endereco" style="display: flex;flex-direction:column;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Bairro</th>
+                <th scope="col">CNPJ</th>
+                <th scope="col">Endereço</th>
+                <th scope="col">Rede</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+            <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var endereco in Model)
+                {
+                    <tr>
+                        <th scope="row">@endereco.Bairro</th>
+                        <td>@endereco.Bairro</td>
+                        <td>@endereco.Estado</td>
+                        <td>@endereco.Cidade</td>
+                        <td>@endereco.Rua</td>
+                        <td>@endereco.Numero</td>
+                        @* <td>@endere.Sobrenome</td>
+                        <td>@endere.UltimoNome</td>
+                        <td>@endere.Username</td>
+                        <td>@endere.EnderecoId</td>
+                        <td>@endere.RoleName</td> *@
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" asp-action="Editar" asp-controller="Edereco" asp-route-id="@endereco.Id" class="btn btn-primary">Editar</a>
+                                <a role="button" asp-action="ApagarConfirmacao" asp-controller="Edereco" asp-route-id="@endereco.Id" class="btn btn-danger">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr class="odd"><td valign="top" colspan="5">Nenhum Edereço encontrado</td></tr>
+            }
+        </tbody>
+    </table>
+</div>
