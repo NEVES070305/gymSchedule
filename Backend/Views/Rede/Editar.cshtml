@@ -1,31 +1,29 @@
 ﻿@model Rede
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
 @{
-    ViewData["Title"] = "Editar Endereco";
+    ViewData["Title"] = "Editar Rede";
 }
 
-<div id="Editar_Pessoa" class="component" style="display:flex; flex-direction:row; justify-content:space-around">
-    <h4>Editar Rede : ID</h4>
+<div class="component" style="display:flex; flex-direction:row; justify-content:space-around">
+    <h4>Editar Rede : @Model.Cnpj</h4>
     <a role="button" class="btn btn-primary" style="margin-right:5px;" asp-controller="Rede" asp-action="Index">Voltar</a>
-
 </div>
 <div>
-    <table class="table">
+    <form asp-controller="Rede" asp-action="Editar" method="post" class="form">
+        <input type="hidden" asp-for="Cnpj" />
 
+        <div class="form-group">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome da rede">
+            @Html.ValidationMessageFor(x => x.Nome)
+        </div>
 
-        <td scope="col">Nome</td>
-        <td scope="col">Sobrenome</td>
-        <td scope="col">UserName</td>
-        <td scope="col">Password</td>
-        <td scope="col">Id Endereco</td>
-        <td scope="col">CPF</td>
-        <td scope="col">Role</td>
-        <td scope="col"></td>
+        <div class="form-group">
+            <label for="enderecoId" class="form-label">Endereço Id</label>
+            <input type="text" asp-for="EnderecoId" class="form-control" placeholder="Digite o endereço id">
+            @Html.ValidationMessageFor(x => x.EnderecoId)
+        </div>
 
-
-        </
-        <table>
-
+        <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+        <a class="btn btn-secondary btn-block" asp-action="Index" asp-controller="Rede" role="button">Voltar</a>
+    </form>
 </div>
