@@ -2,17 +2,15 @@
 using Backend.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Backend.Repository
+namespace Backend.Repository    
 {
     public class PessoaRepository
     {
         private readonly ApplicationDbContext _applicationDbContext;
-
         public PessoaRepository(ApplicationDbContext applicationDbContext)
         {
             _applicationDbContext = applicationDbContext;
         }
-
         public Pessoa Adicionar(Pessoa pessoa)
         {
             _applicationDbContext.Pessoas.Add(pessoa);
@@ -30,27 +28,26 @@ namespace Backend.Repository
             return _applicationDbContext.Pessoas.ToList();
         }
 
-        public Pessoa Editar(PessoaUpdateModel model)
+        public Pessoa Editar(PessoaUpdateModel pessoa)
         {
-            Pessoa pessoaDB = _applicationDbContext.Pessoas.Find(model.CPF);
+            Pessoa pessoaDB = BuscarPorCPF(pessoa.CPF);
 
-            if (pessoaDB == null) throw new Exception("Houve um erro na atualização do contato!");
+            if (pessoaDB == null)
+            {
+                throw new Exception("Pessoa não encontrada para edição.");
+            }
 
-            pessoaDB.Nome = model.Nome;
-            pessoaDB.Sobrenome = model.Sobrenome;
-            pessoaDB.UltimoNome = model.UltimoNome;
-            pessoaDB.EnderecoId = model.EnderecoId;
+            // Atualize apenas os campos especificados
+            pessoaDB.Nome = pessoa.Nome;
+            pessoaDB.Sobrenome = pessoa.Sobrenome;
+            pessoaDB.UltimoNome = pessoa.UltimoNome;
+            pessoaDB.EnderecoId = pessoa.EnderecoId;
 
-            _applicationDbContext.Entry(pessoaDB).Property(p => p.Nome).IsModified = true;
-            _applicationDbContext.Entry(pessoaDB).Property(p => p.Sobrenome).IsModified = true;
-            _applicationDbContext.Entry(pessoaDB).Property(p => p.UltimoNome).IsModified = true;
-            _applicationDbContext.Entry(pessoaDB).Property(p => p.EnderecoId).IsModified = true;
-
+            _applicationDbContext.Pessoas.Update(pessoaDB);
             _applicationDbContext.SaveChanges();
 
             return pessoaDB;
         }
-
         public Pessoa? BuscarPorCPF(int cpf)
         {
             return _applicationDbContext.Pessoas.FirstOrDefault(x => x.CPF == cpf);

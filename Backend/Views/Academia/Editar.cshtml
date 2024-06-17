@@ -1,31 +1,38 @@
-﻿@model Academia
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model PessoaUpdateModel
 @{
-    ViewData["Title"] = "Editar Academia";
+    ViewData["Title"] = "Editar";
 }
 
 <div id="Editar_Pessoa" class="component" style="display:flex; flex-direction:row; justify-content:space-around">
-    <h4>Editar Academia : ID</h4>
-    <a role="button" class="btn btn-primary" style="margin-right:5px;" asp-controller="Academia" asp-action="Index">Voltar</a>
-
+    <h4>Editar User: CPF</h4>
+    <a role="button" class="btn btn-primary" style="margin-right:5px;" asp-controller="Pessoa" asp-action="Index">Voltar</a>
 </div>
 <div>
-    <table class="table">
+    <form asp-controller="Pessoa" asp-action="Editar" method="post" class="form">
+        <input type="hidden" asp-for="CPF" />
+        <div class="form-group">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome do contato">
+            @Html.ValidationMessageFor(x => x.Nome)
+        </div>
+        <div class="form-group">
+            <label for="sobrenome" class="form-label">Sobrenome</label>
+            <input type="text" asp-for="Sobrenome" class="form-control" placeholder="Digite o seu sobrenome">
+            @Html.ValidationMessageFor(x => x.Sobrenome)
+        </div>
+        <div class="form-group">
+            <label for="ultimonome" class="form-label">Ultimo nome</label>
+            <input type="text" asp-for="UltimoNome" class="form-control" placeholder="Digite o seu ultimo nome">
+            @Html.ValidationMessageFor(x => x.UltimoNome)
+        </div>
 
+        <div class="form-group">
+            <label for="enderecoId" class="form-label">Endereço Id</label>
+            <input type="text" asp-for="EnderecoId" class="form-control" placeholder="Digite o endereço do contato">
+            @Html.ValidationMessageFor(x => x.EnderecoId)
+        </div>
 
-        <td scope="col">Nome</td>
-        <td scope="col">Sobrenome</td>
-        <td scope="col">UserName</td>
-        <td scope="col">Password</td>
-        <td scope="col">Id Endereco</td>
-        <td scope="col">CPF</td>
-        <td scope="col">Role</td>
-        <td scope="col"></td>
-
-
-        </
-        <table>
-
+        <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+        <a class="btn btn-secondary btn-block" asp-action="Index" asp-controller="Pessoa" role="button">Voltar</a>
+    </form>
 </div>
