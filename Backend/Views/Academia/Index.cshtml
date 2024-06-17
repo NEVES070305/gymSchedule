@@ -1,62 +1,51 @@
-﻿@model Academia
+﻿@model List<Academia>
 @{
-    ViewData["Title"] = "Listar adademia";
+    ViewData["Title"] = "Gerenciar Pessoa";
 }
 
 <div class="text-center">
     <div class="container">
         <div style="display:flex; flex-direction:row; justify-content:space-around;">
             <h4>Academias</h4>
-            <a class="btn btn-primary" style="margin-right:5px;" asp-controller="Academia" asp-action="Cadastrar">Cadastrar</a>
+            <a class="btn btn-primary" style="margin-right:5px;" asp-controller="Pessoa" asp-action="Cadastrar">Cadastrar</a>
         </div>
     </div>
 </div>
-<!-- Listar Academia -->
-<div id="Listar_Academia" style="display: flex;flex-direction:column;">
-    <table class="table">
+<div id="Listar_Pessoa" style="display:flex inline-flex; flex-direction:column;">
+    <h1 class="display-4">Listagem de academias</h1>
+
+    <table id="table-contatos" class="display" style="width:100%">
         <thead>
             <tr>
+                <th scope="col">CNPF</th>
                 <th scope="col">Nome</th>
-                <th scope="col">CNPJ</th>
-                <th scope="col">Endereço</th>
-                <th scope="col">Rede</th>
-                <th scope="col"></th>
+                <th scope="col">Endereço Id</th>
+                <th scope="col">CnpjRede</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>001</td>
-                <td>Sorocaba</td>
-                <td>Paulo Emanuel</td>
-                <td>55</td>
-                <td>
-                    <a role="button" class="btn btn-dark" style="margin-right:5px;" asp-controller="Academia" asp-action="Editar">Editar</a>
-                    <a role="button" class="btn btn-danger">Apagar</a>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>002</td>
-                <td>São Paulo</td>
-                <td>Praça estrela do Norte</td>
-                <td>110</td>
-                <td>
-                    <a role="button" class="btn btn-dark" style="margin-right:5px;" asp-controller="Academia" asp-action="Editar">Editar</a>
-                    <a role="button" class="btn btn-danger">Apagar</a>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>mdo</td>
-                <td>Mark</td>
-                <td>
-                    <a role="button" class="btn btn-dark" style="margin-right:5px;" asp-controller="Academia" asp-action="Editar">Editar</a>
-                    <a role="button" class="btn btn-danger">Apagar</a>
-                </td>
-            </tr>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var academia in Model)
+                {
+                    <tr>
+                        <th scope="row">@academia.Cnpj</th>
+                        <td>@academia.Nome/td>
+                        <td>@academia.EnderecoId</td>
+                        <td>@academia.CnpjRede</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" asp-action="Editar" asp-controller="Academia" asp-route-cnpj="@academia.Cnpj" class="btn btn-primary">Editar</a>
+                                <a role="button" asp-action="ApagarConfirmacao" asp-controller="Academia" asp-route-cnpj="@academia.Cnpj" class="btn btn-danger">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr class="odd"><td valign="top" colspan="5">Nenhuma pessoa encontrada</td></tr>
+            }
         </tbody>
     </table>
 </div>

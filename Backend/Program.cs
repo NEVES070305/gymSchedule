@@ -27,6 +27,8 @@ namespace Backend
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             builder.Services.AddScoped<EnderecoRepository>();
             builder.Services.AddScoped<PessoaRepository>();
+            builder.Services.AddScoped<RedeRepository>();
+            builder.Services.AddScoped<AcademiaRepository>();
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
             // JWT Authentication
             builder.Services.AddAuthentication(options =>
@@ -46,6 +48,7 @@ namespace Backend
                     ValidateAudience = false
                 };
             });
+            builder.Services.AddAuthorization();
 
             var app = builder.Build();
 
