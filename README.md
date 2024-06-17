@@ -56,26 +56,26 @@ Monitoramento: É recomendável monitorar a API em produção para identificar e
 
 3. **Arquitetura do Sistema**
    
-    - Um padrão de design amplamente utilizado no desenvolvimento de software, especialmente em aplicações web. Ela divide uma aplicação em três componentes principais: Model, View e Controller.
-    - O Model representa a camada de dados da aplicação. A View é responsável pela apresentação dos dados ao usuário. O Controller atua como um intermediário entre o Model e a View.
-    - Uso do padrão Repository para acesso a dados.
+- Um padrão de design amplamente utilizado no desenvolvimento de software, especialmente em aplicações web. Ela divide uma aplicação em três componentes principais: Model, View e Controller.
+- O Model representa a camada de dados da aplicação. A View é responsável pela apresentação dos dados ao usuário. O Controller atua como um intermediário entre o Model e a View.
+- Uso do padrão Repository para acesso a dados.
       
 5. **Requisitos Funcionais**
    
-    - Cadastro de academias, redes de academia, pessoas e funcionarios, isso até o momento.
-    - Checking em márquinas(posterior)
-    - Via esquema em draw.io
+- Cadastro de academias, redes de academia, pessoas e funcionarios, isso até o momento.
+- Checking em márquinas(posterior)
+- Via esquema em draw.io
       
 7. **Requisitos Não Funcionais**
    
-    - Segurança e autenticação via JWT
+- Segurança e autenticação via JWT
       
 9. **Tecnologias Utilizadas**
     
-    - Linguagens de programação (C#)
-    - Frameworks (Entity Framework)
-    - Bancos de dados (SQL Server)
-    - Ferramentas de desenvolvimento (Draw.io, Figma)
+- Linguagens de programação (C#)
+- Frameworks (Entity Framework)
+- Bancos de dados (SQL Server)
+- Ferramentas de desenvolvimento (Draw.io, Figma)
 
    
 
