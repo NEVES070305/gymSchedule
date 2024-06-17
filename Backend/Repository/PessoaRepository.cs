@@ -48,12 +48,12 @@ namespace Backend.Repository
 
             return pessoaDB;
         }
-        public Pessoa? BuscarPorCPF(int cpf)
+        public Pessoa? BuscarPorCPF(string cpf)
         {
             return _applicationDbContext.Pessoas.FirstOrDefault(x => x.CPF == cpf);
         }
 
-        public bool Apagar(int cpf)
+        public bool Apagar(string cpf)
         {
             Pessoa pessoaDB = BuscarPorCPF(cpf);
 
