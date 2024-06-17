@@ -1,0 +1,11 @@
+@model Rede
+@{
+    ViewData["Title"] = "ApagarConfirmacao";
+}
+
+<div class="text-center">
+    <h3>Realmente deseja apagar a rede (@Model.Nome)?</h3>
+</div>
+
+<a class="btn btn-primary btn-block" asp-action="Index" asp-controller="Rede" role="button">Cancelar exclusão</a>
+<a class="btn btn-danger btn-block" asp-action="Apagar" asp-controller="Rede" asp-route-id="@Model.Cnpj" role="button">Confirmar exclusão</a>

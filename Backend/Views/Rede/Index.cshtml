@@ -1,4 +1,4 @@
-﻿@model Rede
+﻿@model List<Rede>
 @{
     ViewData["Title"] = "Cadastrar rede";
 }
@@ -10,59 +10,42 @@
         </div>
     </div>
 </div>
-<div style="display:flex inline-flex; flex-direction:column;">
-    <table class="table">
+<div style="display:flex; flex-direction:column;">
+    <h1 class="display-4">Listagem de contatos</h1>
+
+    <table id="table-contatos" class="table display" style="width:100%">
         <thead>
             <tr>
-                <th scope="col">Cnpj</th>
+                <th scope="col">CNPJ</th>
                 <th scope="col">Nome</th>
-                <th scope="col">EndereçoID</th>
-                <th scope="col">Endereço</th>
-                <th scope="col">Academias</th>
+                <th scope="col">Endereço Id</th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>001</td>
-                <td>Sorocaba</td>
-                <td>Paulo Emanuel</td>
-                <td>55</td>
-                <td>SP</td>
-                <td>
-                    <a role="button" class="btn btn-dark" style="margin-right:5px;" asp-controller="Rede" asp-action="Editar">Editar</a>
-                    <a role="button" class="btn btn-danger">Apagar</a>
-                </td>
-
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>001</td>
-                <td>Sorocaba</td>
-                <td>Paulo Emanuel</td>
-                <td>55</td>
-                <td>SP</td>
-                <td>
-                    <a role="button" class="btn btn-dark" style="margin-right:5px;">Editar</a>
-                    <a role="button" class="btn btn-danger">Apagar</a>
-                </td>
-
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>001</td>
-                <td>Sorocaba</td>
-                <td>Paulo Emanuel</td>
-                <td>55</td>
-                <td>SP</td>
-                <td>
-                    <a role="button" class="btn btn-dark" style="margin-right:5px;">Editar</a>@* modificar para referenciar o ID  *@
-                    <a role="button" class="btn btn-danger">Apagar</a>@*Referenciar para apagar por ID*@
-                </td>
-
-            </tr>
-
+            @if (Model != null && Model.Any())
+            {
+                foreach (var rede in Model)
+                {
+                    <tr>
+                        <td>@rede.Cnpj</td>
+                        <td>@rede.Nome</td>
+                        <td>@rede.EnderecoId</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" asp-action="Editar" asp-controller="Rede" asp-route-id="@rede.Cnpj" class="btn btn-primary">Editar</a>
+                                <a role="button" asp-action="ApagarConfirmacao" asp-controller="Rede" asp-route-id="@rede.Cnpj" class="btn btn-danger">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr class="odd">
+                    <td valign="top" colspan="4">Nenhuma rede encontrada</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>
