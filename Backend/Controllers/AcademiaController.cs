@@ -10,7 +10,8 @@ namespace Backend.Controllers
     {
         private readonly ApplicationDbContext context;
         private readonly AcademiaRepository academiaRepository;
-        public AcademiaController(AcademiaRepository academiaRepository, ApplicationDbContext context){
+        public AcademiaController(AcademiaRepository academiaRepository, ApplicationDbContext context)
+        {
             this.academiaRepository = academiaRepository
 ;
             this.context = context;
@@ -19,6 +20,10 @@ namespace Backend.Controllers
         {
             var academias = academiaRepository.Listar();
             return View(academias);
+        }
+        public IActionResult Cadastrar()
+        {
+            return View();
         }
 
         public IActionResult Editar(string cnpj)
@@ -58,10 +63,6 @@ namespace Backend.Controllers
                 return View(model);
             }
         }
-        public IActionResult Cadastrar()
-        {
-            return View();
-        }
         public async Task<IActionResult> ApagarConfirmacao(string id)
         {
             var pessoa = await context.Redes.FindAsync(id);
@@ -86,6 +87,7 @@ namespace Backend.Controllers
                 return RedirectToAction("Index");
             }
         }
+        
         [HttpPost]
         public IActionResult Criar(Academia academia)
         {

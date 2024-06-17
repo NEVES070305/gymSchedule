@@ -24,7 +24,7 @@ namespace Backend.Controllers
             return View(pessoas);
         }
 
-        public IActionResult Editar(int cpf)
+        public IActionResult Editar(string cpf)
         {
             var pessoa = pessoaRepository.BuscarPorCPF(cpf);
             if (pessoa == null)
@@ -63,7 +63,7 @@ namespace Backend.Controllers
                 return View(model);
             }
         }
-        public IActionResult Apagar(int id)
+        public IActionResult Apagar(string id)
         {
             try
             {
