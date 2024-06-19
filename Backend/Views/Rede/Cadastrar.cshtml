@@ -1,0 +1,32 @@
+﻿@model Rede
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Cadastrar Rede";
+}
+
+<div id="Editar_Pessoa" class="component" style="display:flex; flex-direction:row; justify-content:space-around">
+    <h4>Cadastrar</h4>
+    <a role="button" class="btn btn-primary" style="margin-right:5px;" asp-controller="Rede" asp-action="Index">Voltar</a>
+
+</div>
+<div>
+    <form asp-controller="Rede" asp-action="Criar" method="post">
+        <div class="form-group">
+            <label for="Cnpj">Cnpj</label>
+            <input type="text" asp-for="Cnpj" class="form-control" placeholder="Digite o Cnpj">
+        </div>
+        <div class="form-group">
+            <label for="Nome">Nome</label>
+            <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o Nome">
+        </div>
+        <div class="form-group">
+            <label for="EnderecoId">EndereçoId</label>
+            <input type="text" asp-for="EnderecoId" class="form-control" placeholder="Digite EnderecoId">
+        </div>
+    
+       
+        <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
+    </form>
+</div>

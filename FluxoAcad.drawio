@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net" modified="2024-05-21T22:33:16.226Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="MyKQgn-5MnmO5W1Fq5-O" version="24.4.4" type="github">
+  <diagram name="Página-1" id="7HjrZ0NrOZZDTKuqbn0e">
+    <mxGraphModel dx="1674" dy="688" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TIxW1l330yIIF756UG9r-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=15;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="TIxW1l330yIIF756UG9r-2" target="TIxW1l330yIIF756UG9r-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIxW1l330yIIF756UG9r-2" value="Inicio&amp;nbsp;" style="html=1;dashed=0;whiteSpace=wrap;shape=mxgraph.dfd.start" vertex="1" parent="1">
+          <mxGeometry x="370" y="60" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TIxW1l330yIIF756UG9r-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="TIxW1l330yIIF756UG9r-3" target="TIxW1l330yIIF756UG9r-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIxW1l330yIIF756UG9r-3" value="Tela de login" style="html=1;dashed=0;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="364" y="120" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TIxW1l330yIIF756UG9r-4" value="Usuário inseri as credencias" style="html=1;dashed=0;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="332" y="180" width="156" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TIxW1l330yIIF756UG9r-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="TIxW1l330yIIF756UG9r-5" target="TIxW1l330yIIF756UG9r-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIxW1l330yIIF756UG9r-5" value="Sistema verifica se é um super admin" style="html=1;dashed=0;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="310" y="260" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TIxW1l330yIIF756UG9r-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="TIxW1l330yIIF756UG9r-6" target="TIxW1l330yIIF756UG9r-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="680" y="405" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIxW1l330yIIF756UG9r-16" value="Não" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="TIxW1l330yIIF756UG9r-15">
+          <mxGeometry x="-0.752" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIxW1l330yIIF756UG9r-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="TIxW1l330yIIF756UG9r-6" target="TIxW1l330yIIF756UG9r-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIxW1l330yIIF756UG9r-18" value="Sim" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="TIxW1l330yIIF756UG9r-17">
+          <mxGeometry x="-0.2" y="4" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIxW1l330yIIF756UG9r-6" value="Usuário tem nível de permissão?" style="shape=rhombus;html=1;dashed=0;whiteSpace=wrap;perimeter=rhombusPerimeter;" vertex="1" parent="1">
+          <mxGeometry x="345" y="360" width="150" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="TIxW1l330yIIF756UG9r-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.464;entryY=-0.05;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="TIxW1l330yIIF756UG9r-4" target="TIxW1l330yIIF756UG9r-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIxW1l330yIIF756UG9r-13" value="Acesso a tela de Dashboard" style="html=1;dashed=0;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="370" y="500" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TIxW1l330yIIF756UG9r-14" value="" style="html=1;dashed=0;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="630" y="500" width="100" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

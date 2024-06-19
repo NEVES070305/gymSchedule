@@ -1,0 +1,53 @@
+﻿@model Pessoa
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Cadastrar Pessoa";
+}
+
+<div id="Editar_Pessoa" class="component" style="display:flex; flex-direction:row; justify-content:space-around">
+    <h4>Cadastrar</h4>
+    <a role="button" class="btn btn-primary" style="margin-right:5px;" asp-controller="Pessoa" asp-action="Index">Voltar</a>
+
+</div>
+<div id="Cadastrar_Pessoa">
+    <div style="display:flex; flex-direction:row; align-items:flex-end;">
+       
+    </div>
+    <form asp-controller="Pessoa" asp-action="Criar" method="post">
+        <div class="form-group">
+            <label for="CPF">CPF</label>
+            <input type="text" asp-for="CPF" class="form-control" placeholder="Digite o seu CPF">
+        </div>
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome do novo usuário">
+        </div>
+        <div class="form-group">
+            <label for="sobrenome">Sobrenome</label>
+            <input type="text" asp-for="Sobrenome" class="form-control" placeholder="Digite o sobrenome do novo usuário">
+        </div>
+        <div class="form-group">
+        <label for="ultimonome">Último nome</label>
+        <input type="text" asp-for="UltimoNome" class="form-control" placeholder="Digite o sobrenome do novo usuário">
+        </div>
+        <div class="form-group">
+            <label for="idendereco">Id Endereco</label>
+            <input type="text" asp-for="EnderecoId" class="form-control" placeholder="Digite o id do endereço">
+        </div>
+        <div class="form-group">
+            <label for="role">Role</label>
+            <input type="text" asp-for="RoleName" class="form-control" placeholder="Digite seu cargo">
+        </div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" asp-for="Username" class="form-control" placeholder="Digite o username do no usuário">
+        </div>
+        <div class="form-group">
+            <label for="senha">Senha</label>
+            <input type="text" asp-for="Password" class="form-control" placeholder="Digite a senha do usuário">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
+    </form>
+</div>

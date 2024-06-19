@@ -1,0 +1,61 @@
+﻿@model LoginModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form id="loginForm" asp-controller="Login" asp-action="LogarView" method="post">
+    <div class="form-group">
+        <label asp-for="Username" class="control-label"></label>
+        <input type="text" asp-for="Username" class="form-control" placeholder="Username" />
+        @Html.ValidationMessageFor(x => x.Username)
+    </div>
+    <div class="form-group">
+        <label asp-for="Password" class="control-label"></label>
+        <input asp-for="Password" class="form-control" type="password" placeholder="Senha" />
+        @Html.ValidationMessageFor(x => x.Password)
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Login" class="btn btn-primary" />
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const formObject = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('http://localhost:5036/login/token', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(formObject)
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('refreshToken', data.refreshToken);
+                    localStorage.setItem('expiredDateToken', data.expiredDateToken);
+                    // Redireciona ou atualiza a página, se necessário
+                    alert('Login successful!');
+                } else {
+                    const error = await response.text();
+                    alert('Login failed: ' + error);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while logging in.');
+            }
+        });
+    </script>
+}

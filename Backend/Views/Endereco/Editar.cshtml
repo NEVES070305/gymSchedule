@@ -1,0 +1,46 @@
+﻿@model Endereco
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<div class="component" style="display:flex; flex-direction:row; justify-content:space-around">
+    <h4>Editar Endereço</h4>
+    <a role="button" class="btn btn-primary" style="margin-right:5px;" asp-controller="Endereco" asp-action="Index">Voltar</a>
+</div>
+<div>
+    <form asp-controller="Endereco" asp-action="Editar" method="post" class="form">
+        <input type="hidden" asp-for="Estado" />
+        <div class="form-group">
+            <label for="estado" class="form-label">Estado</label>
+            <input type="text" asp-for="Estado" class="form-control" placeholder="Digite o Estado">
+            @Html.ValidationMessageFor(x => x.Estado)
+        </div>
+
+        <div class="form-group">
+            <label for="Cidade" class="form-label">Cidade</label>
+            <input type="text" asp-for="Cidade" class="form-control" placeholder="Digite a Cidade">
+            @Html.ValidationMessageFor(x => x.Cidade)
+        </div>
+
+        <div class="form-group">
+            <label for="bairro" class="form-label">Bairro</label>
+            <input type="text" asp-for="Bairro" class="form-control" placeholder="Digite o Bairro">
+            @Html.ValidationMessageFor(x => x.Bairro)
+        </div>
+
+        <div class="form-group">
+            <label for="rua" class="form-label">Rua</label>
+            <input type="text" asp-for="Rua" class="form-control" placeholder="Digite a Rua">
+            @Html.ValidationMessageFor(x => x.Rua)
+        </div>
+        <div class="form-group">
+            <label for="numero" class="form-label">Numero</label>
+            <input type="number" asp-for="Numero" class="form-control" placeholder="Digite o Numero">
+            @Html.ValidationMessageFor(x => x.Numero)
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+        <a class="btn btn-secondary btn-block" asp-action="Index" asp-controller="Endereco" role="button">Voltar</a>
+    </form>
+</div>

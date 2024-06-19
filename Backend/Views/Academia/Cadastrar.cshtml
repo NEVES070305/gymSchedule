@@ -1,0 +1,41 @@
+﻿@model Academia
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Cadastrar Academia";
+}
+
+<div class="component" style="display:flex; flex-direction:row; justify-content:space-around">
+    <h4>Cadastrar</h4>
+    <a role="button" class="btn btn-primary" style="margin-right:5px;" asp-controller="Academia" asp-action="Index">Voltar</a>
+
+</div>
+<div>
+    <div style="display:flex; flex-direction:row; align-items:flex-end;">
+    </div>
+    <form asp-controller="Academia" asp-action="Criar" method="post">
+        <div class="form-group">
+            <label for="Cnpj">CNPJ</label>
+            <input type="text" asp-for="Cnpj" class="form-control" placeholder="Digite o Cnpj">
+        </div>
+        <div class="form-group">
+            <label for="EnderecoID">ID do Endereco</label>
+            <input type="text" asp-for="EnderecoId" class="form-control" placeholder="Digite o ID do Endereço">
+        </div>
+        <div class="form-group">
+            <label for="CnpjRede">Cnpj da Rede</label>
+            <input type="text" asp-for="CnpjRede" class="form-control" placeholder="Digite o CNPJ Rede">
+        </div>
+        <div class="form-group">
+            <label for="Endereco">Endereço</label>
+            <input type="text" asp-for="Endereco" class="form-control" placeholder="Digite o Endereço">
+        </div>
+        <div class="form-group">
+            <label for="Rede">Rede</label>
+            <input type="text" asp-for="Rede" class="form-control" placeholder="Digite a Rede">
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
+    </form>
+</div>

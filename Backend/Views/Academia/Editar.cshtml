@@ -1,0 +1,31 @@
+﻿@model AcademiaUpdateModel
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<div class="component" style="display:flex; flex-direction:row; justify-content:space-around">
+    <h4>Editar User: CPF</h4>
+    <a role="button" class="btn btn-primary" style="margin-right:5px;" asp-controller="Academia" asp-action="Index">Voltar</a>
+</div>
+<div>
+    <form asp-controller="Academia" asp-action="Editar" method="post" class="form">
+        <input type="hidden" asp-for="Cnpj" />
+        <div class="form-group">
+            <label for="cnpj" class="form-label">Cnpj</label>
+            <input type="text" asp-for="Cnpj" class="form-control" placeholder="Digite o Cnpj">
+            @Html.ValidationMessageFor(x => x.Cnpj)
+        </div>
+        <div class="form-group">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o Nome">
+            @Html.ValidationMessageFor(x => x.Nome)
+        </div>
+        <div class="form-group">
+            <label for="enderecoId" class="form-label">EndereçoId</label>
+            <input type="text" asp-for="EnderecoId" class="form-control" placeholder="Digite o seu Endereço">
+            @Html.ValidationMessageFor(x => x.EnderecoId)
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+        <a class="btn btn-secondary btn-block" asp-action="Index" asp-controller="Pessoa" role="button">Voltar</a>
+    </form>
+</div>
