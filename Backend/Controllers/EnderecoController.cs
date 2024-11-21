@@ -16,7 +16,8 @@ namespace Backend.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var enderecos = enderecoRepository.Listar();
+            return View(enderecos);
         }
         public IActionResult Editar()
         {
